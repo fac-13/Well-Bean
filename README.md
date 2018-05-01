@@ -1,4 +1,4 @@
-[https://hackmd.io/48YNiVeySWGLcj8w9fWZGA?both](Survey)
+[Survey](https://hackmd.io/48YNiVeySWGLcj8w9fWZGA?both)
 
 # BeWell
 App to create a healthier lifestyle and routine in a community driven platform
