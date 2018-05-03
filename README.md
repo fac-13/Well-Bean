@@ -50,7 +50,7 @@ In a few bullet points, by building this app, what are you looking to prove?
 - Healthy changes can be made from daily routine
 - Help others indirectly
 
-![Flow Chart](https://drive.google.com/file/d/1L9fMSTTeJGiM6kWvwwE3k7NEUUPsbbFX/view?usp=sharing)
+![Flow Chart](https://github.com/fac-13/BeWell/blob/master/BeWell.svg)
 
 
  
