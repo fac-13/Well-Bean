@@ -1,5 +1,3 @@
-[Survey](https://hackmd.io/48YNiVeySWGLcj8w9fWZGA?both)
-
 [User Questionnaire](https://docs.google.com/forms/d/e/1FAIpQLSfNt0ryr1q3mLQcXbRfFuX9RgDqpTFxu4SP_f930plEKo0ubg/viewform)
 
 # BeWell
@@ -29,15 +27,11 @@ App to create a healthier lifestyle and routine in a community driven platform
  - Daily basis/ routine check
  - When challenges are complete
  - When you want to share postivity
- -
-
  
  ### Where will those people be using what you are designing?
  - Smartphone focused
  - In quiet time / personal time
  - Mobile, use wherever comfortable
- -
- -
  
  ### Why are those people choosing to use what you’ve designed (and not something else) and what drives this behavior?
  - Anonymous
@@ -45,24 +39,18 @@ App to create a healthier lifestyle and routine in a community driven platform
  - We provide daily challenges
  - Community moderation
 
-
 ### How will they be using it?
 - Complete daily challenges
 - Track accomplishments
 - Share thoughts 
--
--
 
 ## Hypotheses
 In a few bullet points, by building this app, what are you looking to prove?
-
 - A positive community can be created
 - Healthy changes can be made from daily routine
 - Help others indirectly
-- 
--
 
-
+![Flow Chart](https://drive.google.com/file/d/1L9fMSTTeJGiM6kWvwwE3k7NEUUPsbbFX/view?usp=sharing)
 
 
  
