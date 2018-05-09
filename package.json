@@ -1,0 +1,43 @@
+{
+  "name": "well-bean",
+  "version": "1.0.0",
+  "description": "App to create a healthier lifestyle and routine in a community driven platform",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "NODE_ENV=test nyc nodemon src/tests/*.test.js | tap-spec",
+    "build": "node src/model/database/db_build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fac-13/Well-Bean.git"
+  },
+  "author": "Phat, Haydn, Isaac, Nico",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fac-13/Well-Bean/issues"
+  },
+  "homepage": "https://github.com/fac-13/Well-Bean#readme",
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "nodemon": "^1.17.4",
+    "nyc": "^11.7.2",
+    "supertest": "^3.0.0",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.9.0"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "cookie-session": "^2.0.0-beta.3",
+    "dot-env": "0.0.1",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "pg": "^7.4.3",
+    "pg-promise": "^8.4.3",
+    "serve-favicon": "^2.5.0"
+  }
+}
