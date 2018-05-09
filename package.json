@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "test": "NODE_ENV=test nyc nodemon src/tests/*.test.js | tap-spec",
+    "test": "NODE_ENV=test nyc nodemon src/test/test.js | tap-spec",
     "build": "node src/model/database/db_build.js"
   },
   "repository": {
@@ -33,7 +33,7 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
     "cookie-session": "^2.0.0-beta.3",
-    "dot-env": "0.0.1",
+    "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "pg": "^7.4.3",
