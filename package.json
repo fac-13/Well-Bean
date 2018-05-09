@@ -1,12 +1,13 @@
 {
   "name": "well-bean",
   "version": "1.0.0",
-  "description": "App to create a healthier lifestyle and routine in a community driven platform",
+  "description":
+    "App to create a healthier lifestyle and routine in a community driven platform",
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "test": "NODE_ENV=test nyc nodemon src/test/test.js | tap-spec",
+    "test": "NODE_ENV=test nyc node src/test/test.js | tap-spec",
     "build": "node src/model/database/db_build.js"
   },
   "repository": {
