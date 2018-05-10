@@ -5,6 +5,7 @@ const router = require('./../app.js');
 const runDbBuild = require('../model/database/db_build');
 // require query function
 const getAllChallenges = require('../model/queries/get_all_challenges');
+const getChallenge = require('../model/queries/get_challenge');
 
 test('test tape', (t) => {
   t.pass('tape is working');
@@ -31,10 +32,7 @@ test('Test GET challenges list view route', (t) => {
     .expect('Content-Type', /html/)
     .end((err, res) => {
       t.error(err);
-      t.ok(
-        res.text.includes('Title 1'),
-        'response contains challenge from list',
-      );
+      t.ok(res.text.includes('Title 1'), 'response contains challenge from list');
       t.end();
     });
 });
@@ -46,10 +44,7 @@ test('Test GET challenge detail view route', (t) => {
     .expect('Content-Type', /html/)
     .end((err, res) => {
       t.error(err);
-      t.ok(
-        res.text.includes('Morning'),
-        'response contains info about individual challenge',
-      );
+      t.ok(res.text.includes('Morning'), 'response contains info about individual challenge');
       t.end();
     });
 });
@@ -94,6 +89,20 @@ test('Test for the first row of challenges query', (t) => {
         expected,
         'getAllChallenges returns first challenge title in table',
       );
+      t.end();
+    })
+    .catch(t.error);
+});
+
+test('Test GET challenge detail view', (t) => {
+  const expected = 'object';
+  runDbBuild()
+    .then((res) => {
+      t.ok(res);
+      return getChallenge(2);
+    })
+    .then((challenge) => {
+      t.equal(typeof challenge, expected, 'getChallenge returns an object');
       t.end();
     })
     .catch(t.error);
