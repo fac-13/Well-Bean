@@ -60,7 +60,7 @@ CREATE TABLE chg_report
     added TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-INSERT INTO users (username, password, email) VALUES ('Tinky Wiky', 'password123', 'tinky@winky.com'),
+INSERT INTO users (username, password, email) VALUES ('Tinky Winky', 'password123', 'tinky@winky.com'),
 ('Po', 'password123', 'po@winky.com'),
 ('Dipsy', 'password123', 'dipsy@winky.com'),
 ('Lala', 'password123', 'lala@winky.com');
