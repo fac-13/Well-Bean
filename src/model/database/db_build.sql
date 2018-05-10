@@ -38,7 +38,7 @@ CREATE TABLE user_challenges
 (
     id BIGSERIAL PRIMARY KEY,
     user_id BIGINT REFERENCES users(id),
-    challenges_id BIG INT REFERENCES challenges(id),
+    challenges_id BIGINT REFERENCES challenges(id),
     status VARCHAR(10) DEFAULT 'active'
 );
 
