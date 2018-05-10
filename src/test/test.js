@@ -17,14 +17,13 @@ test('Test home route running', (t) => {
     });
 });
 
-
 test('Test challenges route running', (t) => {
   request(router)
     .get('/challenges')
     .expect(200)
     .expect('Content-Type', /html/)
     .end((err, res) => {
-      t.ok(res.text.includes('ored'), 'Test returns expected text');
+      t.ok(res.text.includes('Title 1'), 'Test returns expected text');
       t.error(err);
       t.end();
     });
