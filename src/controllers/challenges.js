@@ -1,22 +1,26 @@
 const challenges = [
   {
+    id: 1,
     title: 'Title 1',
-    description: 'Description 1',
+    category: 'Fitness',
     username: 'Tinky Winky',
   },
   {
+    id: 2,
     title: 'Title 2',
-    description: 'Description 2',
+    category: 'Mindfulness',
     username: 'LaaLaa',
   },
   {
+    id: 3,
     title: 'Title 3',
-    description: 'Description 3',
+    category: 'Home',
     username: 'Po',
   },
   {
+    id: 4,
     title: 'Title 4',
-    description: 'Description 4',
+    category: 'Romance',
     username: 'Dipsy',
   },
 ];

@@ -1,15 +1,14 @@
 <section>
-  {{#each challenges}}
-  <article>
-    <header>
-      <h1>{{this.title}}</h1>
-    </header>
-    <main>
-      <p>{{this.description}}</p>
-    </main>
-    <footer>
-      <img src="http://sigil.cupcake.io/{{this.username}}" height="60px" width="60px">
-    </footer>
-  </article>
-  {{/each}}
+  <ul>
+    {{#each challenges}}
+    <li>
+      <a href="/challenge/{{this.id}}">
+        <div>
+          <h1>{{this.title}}</h1>
+          <img src="http://sigil.cupcake.io/{{this.category}}" alt="icon for {{category}}" height="60px" width="60px">
+        </div>
+      </a>
+    </li>
+    {{/each}}
+  </ul>
 </section>
