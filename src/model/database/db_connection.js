@@ -1,6 +1,6 @@
 const pgp = require('pg-promise')(); // Always remember the '()' when using pg promise!
 const url = require('url');
-require('dotenv')('.env');
+require('dotenv').config();
 
 let { DATABASE_URL } = process.env;
 
