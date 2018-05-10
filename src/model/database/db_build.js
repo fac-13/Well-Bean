@@ -8,12 +8,6 @@ const sql = file => QueryFile(path.join(__dirname, file), { minify: true });
 const build = sql('./db_build.sql');
 
 // database building for test
-const runDbBuild = (cb) => {
-  db.query(build)
-    .then((res) => {
-      cb(null, res);
-    })
-    .catch(error => cb(error));
-};
+const runDbBuild = () => db.query(build);
 
 module.exports = runDbBuild;
