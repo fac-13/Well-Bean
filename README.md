@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/fac-13/Well-Bean.svg?branch=master)](https://travis-ci.org/fac-13/Well-Bean)
+
 [User Questionnaire](https://docs.google.com/forms/d/e/1FAIpQLSfNt0ryr1q3mLQcXbRfFuX9RgDqpTFxu4SP_f930plEKo0ubg/viewform)
 
 # Well-Bean App
