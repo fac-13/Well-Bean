@@ -5,6 +5,7 @@ const router = require('./../app.js');
 const runDbBuild = require('../model/database/db_build');
 // require query function
 const getAllChallenges = require('../model/queries/get_all_challenges');
+const getChallenge = require('../model/queries/get_challenge');
 
 test('test tape', (t) => {
   t.pass('tape is working');
@@ -46,9 +47,26 @@ test('Test for the first row of challenges query', (t) => {
       return getAllChallenges();
     })
     .then((challenges) => {
-      t.deepEqual(challenges[0].title, expected, 'getAllChallenges returns first challenge title in table');
+      t.deepEqual(
+        challenges[0].title,
+        expected,
+        'getAllChallenges returns first challenge title in table',
+      );
       t.end();
     })
     .catch(t.error);
 });
 
+test('Test GET challenge detail view', (t) => {
+  const expected = 'object';
+  runDbBuild()
+    .then((res) => {
+      t.ok(res);
+      return getChallenge(2);
+    })
+    .then((challenge) => {
+      t.equal(typeof challenge, expected, 'getChallenge returns an object');
+      t.end();
+    })
+    .catch(t.error);
+});
