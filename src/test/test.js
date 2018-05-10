@@ -16,6 +16,7 @@ test('Test home route running', (t) => {
     .get('/')
     .expect(200)
     .end((err, res) => {
+      t.ok(res);
       t.error(err);
       t.end();
     });
