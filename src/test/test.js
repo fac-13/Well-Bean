@@ -14,7 +14,7 @@ test('Test home route', (t) => {
     .expect('Content-Type', /html/)
     .end((err, res) => {
       t.error(err);
-      t.ok(res.text.includes('<html>'), 'response is an html file');
+      t.ok(res.text.includes('Welcome'), 'response contains welcome message');
       t.end();
     });
 });
@@ -26,7 +26,10 @@ test('Test GET challenges list view route', (t) => {
     .expect('Content-Type', /html/)
     .end((err, res) => {
       t.error(err);
-      t.ok(res.text.includes('Title 1'), 'response contains entry from list');
+      t.ok(
+        res.text.includes('Title 1'),
+        'response contains challenge from list',
+      );
       t.end();
     });
 });
@@ -53,6 +56,18 @@ test('Test select challenge POST route', (t) => {
     .end((err, res) => {
       t.error(err);
       t.ok(res, 'response has something from query');
+      t.end();
+    });
+});
+
+test('Test GET messages view route', (t) => {
+  request(router)
+    .get('/messages')
+    .expect(200)
+    .expect('Content-Type', /html/)
+    .end((err, res) => {
+      t.error(err);
+      t.ok(res.text.includes('scooter'), 'response contains message from list');
       t.end();
     });
 });
