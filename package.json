@@ -1,8 +1,7 @@
 {
   "name": "well-bean",
   "version": "1.0.0",
-  "description":
-    "App to create a healthier lifestyle and routine in a community driven platform",
+  "description": "App to create a healthier lifestyle and routine in a community driven platform",
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
