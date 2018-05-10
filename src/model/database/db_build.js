@@ -11,10 +11,9 @@ const build = sql('./db_build.sql');
 const runDbBuild = (cb) => {
   db.query(build)
     .then((res) => {
-      console.log('res: ', res);
-      cb();
+      cb(null, res);
     })
-    .catch(e => console.error('error: ', e));
+    .catch(error => cb(error));
 };
 
 module.exports = runDbBuild;
