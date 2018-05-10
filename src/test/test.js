@@ -43,11 +43,11 @@ test('Test for the first row of challenges query', (t) => {
   runDbBuild()
     .then((res) => {
       t.ok(res);
-      getAllChallenges()
-        .then((challenges) => {
-          t.deepEqual(challenges[0].title, expected, 'getAllChallenges returns first challenge in table');
-          t.end();
-        });
+      return getAllChallenges();
+    })
+    .then((challenges) => {
+      t.deepEqual(challenges[0].title, expected, 'getAllChallenges returns first challenge title in table');
+      t.end();
     })
     .catch(t.error);
 });
