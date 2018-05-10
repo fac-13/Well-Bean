@@ -1,0 +1,12 @@
+<section>
+  <ul>
+    {{#each messages}}
+    <li>
+      <div>
+        <p>{{this.body}}</p>
+        <img src="http://sigil.cupcake.io/{{this.username}}" alt="user icon {{this.username}}" height="60px" width="60px">
+      </div>
+    </li>
+    {{/each}}
+  </ul>
+</section>
