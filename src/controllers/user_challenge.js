@@ -5,6 +5,8 @@ exports.post = (req, res) => {
   const challengeId = req.params.id;
 
   postUserChallenge(userId, challengeId)
-    .then(() => res.redirect('/'))
+    .then(() => {
+      res.redirect('/');
+    })
     .catch(e => console.log(e));
 };
