@@ -2,15 +2,16 @@
   <article>
     <a href="/challenges">Back</a>
     <header>
-      <img src="http://sigil.cupcake.io/{{category}}" alt="icon for {{category}}" height="60px" width="60px">
+      <img src="/img/{{lowercase category}}.svg" alt="icon for {{category}}" height="60px" width="60px">
       <h2>{{title}}</h2>
     </header>
     <main>
       <p>{{description}}</p>
-      <a href="/">Select</a>
+      <a href="/user-challenge/{{id}}">Select</a>
     </main>
     <footer>
-      <p>This challenge was added by {{username}} on {{added}}.</p>
+      <p>This challenge was added by
+        <img src="http://sigil.cupcake.io/{{username}}" height="50px" width="50px">{{username}} on {{added}}.</p>
     </footer>
   </article>
 </section>

@@ -1,4 +1,4 @@
-const db = require('./../database/db_connection');
+const db = require('../database/db_connection');
 
 const getAllChallenges = () =>
   db.query(`SELECT ch.id, ch.title, cat.name AS category FROM challenges AS ch

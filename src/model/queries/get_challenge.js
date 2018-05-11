@@ -1,4 +1,4 @@
-const db = require('./../database/db_connection');
+const db = require('../database/db_connection');
 
 const getChallenge = challengeID =>
   db.query(
