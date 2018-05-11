@@ -1,10 +1,10 @@
 const test = require('tape'); //eslint-disable-line
 const request = require('supertest'); //eslint-disable-line
-const router = require('./../app.js');
+const router = require('../app.js');
 // require test database build script
-const runDbBuild = require('./../model/database/db_build');
+const runDbBuild = require('../model/database/db_build');
 // require query functions
-const { getAllChallenges, getChallenge } = require('./../model/queries/index');
+const { getAllChallenges, getChallenge, postUserChallenge } = require('../model/queries/');
 
 runDbBuild();
 
@@ -98,15 +98,30 @@ test('Test getAllChallenges query', (t) => {
 });
 
 test('Test getChallenge query', (t) => {
-  const expected = 'object';
   runDbBuild()
     .then((res) => {
       t.ok(res);
       return getChallenge(2);
     })
     .then((challenge) => {
-      t.equal(typeof challenge[0], expected, 'getChallenge returns an object');
+      t.equal(typeof challenge[0], 'object', 'getChallenge returns an object');
       t.equal(challenge[0].title, 'Node Express', 'response contains object with title');
+      t.end();
+    })
+    .catch((e) => {
+      t.error(e);
+      t.end();
+    });
+});
+
+test('Test postUserChallenge query', (t) => {
+  runDbBuild()
+    .then((res) => {
+      t.ok(res);
+      return postUserChallenge(2, 2);
+    })
+    .then((UserChallenge) => {
+      t.ok(UserChallenge[0].id, 'postUserChallenge returns an id');
       t.end();
     })
     .catch((e) => {
