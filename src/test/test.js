@@ -2,10 +2,11 @@ const test = require('tape'); //eslint-disable-line
 const request = require('supertest'); //eslint-disable-line
 const router = require('./../app.js');
 // require test database build script
-const runDbBuild = require('../model/database/db_build');
-// require query function
-const getAllChallenges = require('../model/queries/get_all_challenges');
-const getChallenge = require('../model/queries/get_challenge');
+const runDbBuild = require('./../model/database/db_build');
+// require query functions
+const { getAllChallenges, getChallenge } = require('./../model/queries/index');
+
+runDbBuild();
 
 test('test tape', (t) => {
   t.pass('tape is working');
@@ -32,7 +33,7 @@ test('Test GET challenges list view route', (t) => {
     .expect('Content-Type', /html/)
     .end((err, res) => {
       t.error(err);
-      t.ok(res.text.includes('Title 1'), 'response contains challenge from list');
+      t.ok(res.text.includes('Lunch walk'), 'response contains challenge from list');
       t.end();
     });
 });
