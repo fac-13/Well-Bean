@@ -85,7 +85,7 @@ test('Test status for error 404', (t) => {
     .expect('Content-Type', /html/)
     .end((err, res) => {
       t.error(err);
-      t.equal(res.statusCode, 404, 'Returns error 404');
+      t.ok(res.text.includes('found'), 'Returns 404 error message');
       t.end();
     });
 });
