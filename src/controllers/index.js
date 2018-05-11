@@ -15,7 +15,7 @@ const error = require('./error');
 router.get('/', home.get);
 router.get('/challenges', challenges.get);
 router.get('/challenge/:id', challenge.get);
-router.get('add-challenge', addChallenge.get);
+router.get('/add-challenge', addChallenge.get);
 router.get('/messages', messages.get);
 
 router.post('/user-challenge/:id', userChallenge.post);
