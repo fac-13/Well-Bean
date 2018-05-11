@@ -6,6 +6,7 @@ const runDbBuild = require('../model/database/db_build');
 // require query function
 const getAllChallenges = require('../model/queries/get_all_challenges');
 const getChallenge = require('../model/queries/get_challenge');
+const getMessages = require('../model/queries/get_messages');
 
 test('test tape', (t) => {
   t.pass('tape is working');
@@ -67,7 +68,7 @@ test('Test GET messages view route', (t) => {
     .expect('Content-Type', /html/)
     .end((err, res) => {
       t.error(err);
-      t.ok(res.text.includes('scooter'), 'response contains message from list');
+      t.ok(res.text.includes('stuff'), 'response contains message from list');
       t.end();
     });
 });
@@ -103,6 +104,25 @@ test('Test GET challenge detail view', (t) => {
     })
     .then((challenge) => {
       t.equal(typeof challenge, expected, 'getChallenge returns an object');
+      t.end();
+    })
+    .catch(t.error);
+});
+
+
+test('Test get message query', (t) => {
+  const expected = 'Strut your stuff!';
+  runDbBuild()
+    .then((res) => {
+      t.ok(res);
+      return getMessages();
+    })
+    .then((messages) => {
+      t.equal(
+        messages[0].body,
+        expected,
+        'getMessages returns first message in table',
+      );
       t.end();
     })
     .catch(t.error);
