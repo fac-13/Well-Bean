@@ -8,6 +8,7 @@ const {
   getAllChallenges,
   getChallenge,
   getMessages,
+  postChallenge,
   postUserChallenge,
 } = require('../model/queries/');
 
@@ -55,7 +56,19 @@ test('Test GET challenge detail view route', (t) => {
     });
 });
 
-test('Test select challenge POST route', (t) => {
+test('Test GET messages view route', (t) => {
+  request(router)
+    .get('/messages')
+    .expect(200)
+    .expect('Content-Type', /html/)
+    .end((err, res) => {
+      t.error(err);
+      t.ok(res.text.includes('stuff'), 'response contains message from list');
+      t.end();
+    });
+});
+
+test('Test POST user challenge route', (t) => {
   request(router)
     .post('/user-challenge/1')
     .expect(302)
@@ -66,14 +79,13 @@ test('Test select challenge POST route', (t) => {
     });
 });
 
-test('Test GET messages view route', (t) => {
+test('Test POST challenge route', (t) => {
   request(router)
-    .get('/messages')
-    .expect(200)
-    .expect('Content-Type', /html/)
+    .post('/challenge')
+    .expect(302)
     .end((err, res) => {
       t.error(err);
-      t.ok(res.text.includes('stuff'), 'response contains message from list');
+      t.ok(res, 'response has something from query');
       t.end();
     });
 });
@@ -119,22 +131,6 @@ test('Test getChallenge query', (t) => {
     });
 });
 
-test('Test postUserChallenge query', (t) => {
-  runDbBuild()
-    .then((res) => {
-      t.ok(res);
-      return postUserChallenge(2, 2);
-    })
-    .then((UserChallenge) => {
-      t.ok(UserChallenge[0].id, 'postUserChallenge returns an id');
-      t.end();
-    })
-    .catch((e) => {
-      t.error(e);
-      t.end();
-    });
-});
-
 test('Test getMessages query', (t) => {
   const expected = 'Strut your stuff!';
   runDbBuild()
@@ -144,6 +140,38 @@ test('Test getMessages query', (t) => {
     })
     .then((messages) => {
       t.equal(messages[0].body, expected, 'first message in response is as expected');
+      t.end();
+    })
+    .catch((e) => {
+      t.error(e);
+      t.end();
+    });
+});
+
+test('Test postChallenge query', (t) => {
+  runDbBuild()
+    .then((res) => {
+      t.ok(res);
+      return postChallenge(4, 2, 'This is the Title', 'This is the description');
+    })
+    .then((UserChallenge) => {
+      t.ok(UserChallenge[0].id, 'postChallenge returns an id');
+      t.end();
+    })
+    .catch((e) => {
+      t.error(e);
+      t.end();
+    });
+});
+
+test('Test postUserChallenge query', (t) => {
+  runDbBuild()
+    .then((res) => {
+      t.ok(res);
+      return postUserChallenge(2, 2);
+    })
+    .then((UserChallenge) => {
+      t.ok(UserChallenge[0].id, 'postUserChallenge returns an id');
       t.end();
     })
     .catch((e) => {

@@ -16,5 +16,6 @@ router.get('/challenge/:id', challenge.get);
 router.get('/messages', messages.get);
 
 router.post('/user-challenge/:id', userChallenge.post);
+router.post('/challenge', challenge.post);
 
 module.exports = router;
