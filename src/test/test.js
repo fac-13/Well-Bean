@@ -7,7 +7,7 @@ const runDbBuild = require('./../model/database/db_build');
 const {
   getAllChallenges,
   getChallenge,
-  getMessages
+  getMessages,
 } = require('./../model/queries/index');
 
 runDbBuild();
