@@ -4,7 +4,12 @@ const router = require('../app.js');
 // require test database build script
 const runDbBuild = require('../model/database/db_build');
 // require query functions
-const { getAllChallenges, getChallenge, postUserChallenge } = require('../model/queries/');
+const {
+  getAllChallenges,
+  getChallenge,
+  getMessages,
+  postUserChallenge,
+} = require('../model/queries/');
 
 runDbBuild();
 
@@ -68,7 +73,7 @@ test('Test GET messages view route', (t) => {
     .expect('Content-Type', /html/)
     .end((err, res) => {
       t.error(err);
-      t.ok(res.text.includes('scooter'), 'response contains message from list');
+      t.ok(res.text.includes('stuff'), 'response contains message from list');
       t.end();
     });
 });
@@ -122,6 +127,23 @@ test('Test postUserChallenge query', (t) => {
     })
     .then((UserChallenge) => {
       t.ok(UserChallenge[0].id, 'postUserChallenge returns an id');
+      t.end();
+    })
+    .catch((e) => {
+      t.error(e);
+      t.end();
+    });
+});
+
+test('Test getMessages query', (t) => {
+  const expected = 'Strut your stuff!';
+  runDbBuild()
+    .then((res) => {
+      t.ok(res);
+      return getMessages();
+    })
+    .then((messages) => {
+      t.equal(messages[0].body, expected, 'first message in response is as expected');
       t.end();
     })
     .catch((e) => {
