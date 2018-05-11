@@ -2,6 +2,7 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const favicon = require('serve-favicon');
+const bodyParser = require('body-parser');
 
 // require controllers
 const controllers = require('./controllers');
@@ -22,6 +23,10 @@ app.engine(
     defaultLayout: 'main',
   }),
 );
+
+// form data parsing
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // set up server
 app.set('port', process.env.PORT || 3000);

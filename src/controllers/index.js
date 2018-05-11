@@ -6,6 +6,7 @@ const router = express.Router();
 const home = require('./home');
 const challenges = require('./challenges');
 const challenge = require('./challenge');
+const addChallenge = require('./add_challenge');
 const userChallenge = require('./user_challenge');
 const messages = require('./messages');
 const error = require('./error');
@@ -14,10 +15,11 @@ const error = require('./error');
 router.get('/', home.get);
 router.get('/challenges', challenges.get);
 router.get('/challenge/:id', challenge.get);
+router.get('add-challenge', addChallenge.get);
 router.get('/messages', messages.get);
 
 router.post('/user-challenge/:id', userChallenge.post);
-router.post('/challenge', challenge.post);
+router.post('/add-challenge', addChallenge.post);
 
 router.use(error.client);
 router.use(error.server);

@@ -32,6 +32,19 @@ test('Test home route', (t) => {
     });
 });
 
+test('Test add-challenge route', (t) => {
+  request(router)
+    .get('/add-challenge')
+    .expect(200)
+    .expect('Content-Type', /html/)
+    .end((err, res) => {
+      t.ok(res);
+      t.error(err);
+      t.ok(res.text.includes('Create a new challenge'), 'response contains page title');
+      t.end();
+    });
+});
+
 test('Test GET challenges list view route', (t) => {
   request(router)
     .get('/challenges')
@@ -79,9 +92,15 @@ test('Test POST user challenge route', (t) => {
     });
 });
 
-test('Test POST challenge route', (t) => {
+test('Test POST add-challenge route', (t) => {
   request(router)
-    .post('/challenge')
+    .post('/add-challenge')
+    .send({
+      categoryId: 2,
+      userId: 4,
+      title: 'This is the Title',
+      description: 'This is the description',
+    })
     .expect(302)
     .end((err, res) => {
       t.error(err);
