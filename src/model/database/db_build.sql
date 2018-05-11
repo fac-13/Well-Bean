@@ -69,22 +69,14 @@ VALUES
 INSERT INTO categories
     (name)
 VALUES
-    ('Fitness'),
-    --1
-    ('Nourishment'),
-    --2
-    ('Home'),
-    --3
-    ('Family'),
-    --4
-    ('Learning'),
-    --5
-    ('Mindfulness'),
-    --6
-    ('Social'),
-    --7
-    ('Romance');
---8
+    ('Fitness'),--1
+    ('Nourishment'),--2
+    ('Home'),--3
+    ('Family'),--4
+    ('Learning'),--5
+    ('Mindfulness'),--6
+    ('Social'),--7
+    ('Romance');--8
 INSERT INTO challenges
     (categories_id, user_id, title, description)
 VALUES

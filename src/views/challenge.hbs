@@ -7,7 +7,9 @@
     </header>
     <main>
       <p>{{description}}</p>
-      <a href="/user-challenge/{{id}}">Select</a>
+      <form action="/user-challenge/{{id}}" method="POST">
+        <input type="submit" value="Select Challenge">
+      </form>
     </main>
     <footer>
       <p>This challenge was added by
