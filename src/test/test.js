@@ -78,6 +78,18 @@ test('Test GET messages view route', (t) => {
     });
 });
 
+test('Test status for error 404', (t) => {
+  request(router)
+    .get('/blah')
+    .expect(404)
+    .expect('Content-Type', /html/)
+    .end((err, res) => {
+      t.error(err);
+      t.equal(res.statusCode, 404, 'Returns error 404');
+      t.end();
+    });
+});
+
 // **********************************************
 // **************database tests******************
 // **********************************************
