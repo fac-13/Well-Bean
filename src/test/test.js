@@ -32,7 +32,7 @@ test('Test GET challenges list view route', (t) => {
     .expect('Content-Type', /html/)
     .end((err, res) => {
       t.error(err);
-      t.ok(res.text.includes('Title 1'), 'response contains challenge from list');
+      t.ok(res.text.includes('Lunch walk'), 'response contains challenge from list');
       t.end();
     });
 });
