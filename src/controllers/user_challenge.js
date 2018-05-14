@@ -1,6 +1,4 @@
-const {
-  postUserChallenge,
-} = require('../model/queries/');
+const { postUserChallenge } = require('../model/queries/');
 
 exports.post = (req, res, next) => {
   const userId = 1;

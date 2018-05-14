@@ -14,7 +14,10 @@ test('Test postChallenge query', (t) => {
       t.ok(res);
       return postChallenge(3, 3, 'Add new', 'This is a new test challenge');
     })
-    .then(() => getAllChallenges())
+    .then((id) => {
+      t.ok(id);
+      return getAllChallenges();
+    })
     .then((res) => {
       t.ok(res, 'postChallenge returns last added item');
       t.end();
