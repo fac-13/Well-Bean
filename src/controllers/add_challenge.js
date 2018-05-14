@@ -6,7 +6,7 @@ exports.get = (req, res) => {
   res.render('add_challenge');
 };
 
-exports.post = (req, res) => {
+exports.post = (req, res, next) => {
   const {
     categoryId,
     userId,
@@ -14,12 +14,18 @@ exports.post = (req, res) => {
     description,
   } = req.body;
 
+  if (!title) {res.render('add_challenge', {
+    error: 'title'
+  });}
+  if (!description) {res.render('add_challenge', {
+    error: 'description'
+  });}
   postChallenge(categoryId, userId, title, description)
     .then(() => {
       res.redirect('/challenges');
     })
     .catch((e) => {
       console.error(e);
-      res.render(500);
+      next(e);
     });
 };
