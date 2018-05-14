@@ -2,9 +2,9 @@ const {
   getChallenge,
 } = require('../model/queries/');
 
-exports.get = (req, res) => {
-  getChallenge(req.params.id).then(challenge => res.render('challenge', challenge[0]).catch((e) => {
+exports.get = (req, res, next) => {
+  getChallenge(req.params.id).then(challenge => res.render('challenge', challenge[0])).catch((e) => {
     console.error(e);
-    res.render(500);
-  }));
+    next(e);
+  });
 };

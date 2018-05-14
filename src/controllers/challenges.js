@@ -5,8 +5,8 @@ const {
 exports.get = (req, res, next) => {
   getAllChallenges().then(challenges => res.render('challenges', {
     challenges,
-  }).catch((e) => {
+  })).catch((e) => {
     console.error(e);
     next(e);
-  }));
+  });
 };
