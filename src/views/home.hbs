@@ -5,6 +5,12 @@
     <h3>Active Challenge</h3>
     <img src="/img/{{lowercase category}}.svg" alt="icon for {{category}}" height="60px" width="60px">
     <p>{{title}}</p>
+    <form action="/complete-challenge/{{id}}" method="POST">
+        <input type="submit" value="&#10003">
+    </form>
+    <form action="/abandon-challenge/{{id}}" method="POST">
+        <input type="submit" value="X">
+    </form>
   </div>
   {{else}}
     <p>no active</p>
