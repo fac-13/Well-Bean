@@ -1,5 +1,10 @@
-const { getChallenge } = require('../model/queries/');
+const {
+  getChallenge,
+} = require('../model/queries/');
 
 exports.get = (req, res) => {
-  getChallenge(req.params.id).then(challenge => res.render('challenge', challenge[0]));
+  getChallenge(req.params.id).then(challenge => res.render('challenge', challenge[0]).catch((e) => {
+    console.error(e);
+    res.render(500);
+  }));
 };

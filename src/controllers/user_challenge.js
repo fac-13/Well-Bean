@@ -1,6 +1,8 @@
-const { postUserChallenge } = require('../model/queries/');
+const {
+  postUserChallenge,
+} = require('../model/queries/');
 
-exports.post = (req, res) => {
+exports.post = (req, res, next) => {
   const userId = 1;
   const challengeId = req.params.id;
 
@@ -8,5 +10,8 @@ exports.post = (req, res) => {
     .then(() => {
       res.redirect('/');
     })
-    .catch(e => console.log(e));
+    .catch((e) => {
+      console.log(e);
+      next(e);
+    });
 };

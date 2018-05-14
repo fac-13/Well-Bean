@@ -1,4 +1,6 @@
-const { postChallenge } = require('../model/queries/');
+const {
+  postChallenge,
+} = require('../model/queries/');
 
 exports.get = (req, res) => {
   res.render('add_challenge');
@@ -6,12 +8,18 @@ exports.get = (req, res) => {
 
 exports.post = (req, res) => {
   const {
-    categoryId, userId, title, description,
+    categoryId,
+    userId,
+    title,
+    description,
   } = req.body;
 
   postChallenge(categoryId, userId, title, description)
     .then(() => {
       res.redirect('/challenges');
     })
-    .catch(e => console.log(e));
+    .catch((e) => {
+      console.error(e);
+      res.render(500);
+    });
 };
