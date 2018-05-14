@@ -1,6 +1,6 @@
 const db = require('../database/db_connection');
 
-const getActiveChallenges = userId =>
+const getActiveChallenge = userId =>
   db.query(`
   SELECT uc.id, ch.title, cat.name AS category 
   FROM challenges AS ch
@@ -10,4 +10,4 @@ const getActiveChallenges = userId =>
   WHERE uc.user_id = $1 AND uc.status = 'active';
   `, [userId]);
 
-module.exports = getActiveChallenges;
+module.exports = getActiveChallenge;
