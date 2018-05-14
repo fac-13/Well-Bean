@@ -83,3 +83,8 @@ VALUES
     (2, NULL, 'Morning Hydration', 'Drink water in the morning to hydrate your body. People don''t realise you sleep for approximately 8 hours without drinking water. Your body is dehydrated in the morning, get a good kickstart to the day!'),
     (5, NULL, 'Node Express', 'Go explore Node modules and Express to help make your coding life easier! Be careful of package rating and user community. Some packages can be risky and not updated!'),
     (1, NULL, 'Lunch walk', 'Have a short 5 minute walk after lunch. It will help with digestion and its always good to get some fresh air!');
+
+INSERT INTO user_challenges (user_id, challenges_id, status)
+  VALUES (1, 1, 'finished'),
+  (2, 1, 'finished'),
+  (1, 2, default);
