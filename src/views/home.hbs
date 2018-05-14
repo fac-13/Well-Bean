@@ -1,3 +1,12 @@
 <section>
   <h1>Welcome to Well-Bean</h1>
+  {{#if title}}
+  <div>
+    <h3>Active Challenge</h3>
+    <img src="/img/{{lowercase category}}.svg" alt="icon for {{category}}" height="60px" width="60px">
+    <p>{{title}}</p>
+  </div>
+  {{else}}
+    <p>no active</p>
+  {{/if}}
 </section>
