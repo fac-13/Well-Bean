@@ -6,13 +6,13 @@
     <img src="/img/{{lowercase category}}.svg" alt="icon for {{category}}" height="60px" width="60px">
     <p>{{title}}</p>
     <form action="/complete-challenge/{{id}}" method="POST">
-        <input type="submit" value="&#10003">
+      <input type="submit" value="&#10003">
     </form>
     <form action="/abandon-challenge/{{id}}" method="POST">
-        <input type="submit" value="X">
+      <input type="submit" value="X">
     </form>
   </div>
   {{else}}
-    <p>no active</p>
+  <p>no active</p>
   {{/if}}
 </section>
