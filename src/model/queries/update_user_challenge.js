@@ -1,14 +1,14 @@
 const db = require('../database/db_connection');
 
-const updateUserChallenge = userChallengeId =>
+const updateUserChallenge = (id, status) =>
   db.query(
     `
   UPDATE user_challenges
-  SET status = 'complete'
-  WHERE id=$1
-  RETURNING id;
+  SET status = $2
+  WHERE id= $1
+  RETURNING id, status;
   `,
-    [userChallengeId],
+    [id, status],
   );
 
 module.exports = updateUserChallenge;

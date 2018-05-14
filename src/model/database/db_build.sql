@@ -29,12 +29,13 @@ CREATE TABLE challenges
     description VARCHAR(1500) NOT NULL,
     added TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
+
 CREATE TABLE user_challenges
 (
     id BIGSERIAL PRIMARY KEY,
     user_id BIGINT REFERENCES users(id),
     challenges_id BIGINT REFERENCES challenges(id),
-    status VARCHAR(10) DEFAULT 'active'
+    status VARCHAR(10) CHECK (status = 'active' OR status = 'complete' OR status = 'abandon')
 );
 CREATE TABLE msg_report
 (
@@ -85,6 +86,6 @@ VALUES
     (1, NULL, 'Lunch walk', 'Have a short 5 minute walk after lunch. It will help with digestion and its always good to get some fresh air!');
 
 INSERT INTO user_challenges (user_id, challenges_id, status)
-  VALUES (1, 1, 'finished'),
-  (2, 1, 'finished'),
-  (1, 2, default);
+  VALUES (1, 1, 'active'),
+  (2, 1, 'complete'),
+  (1, 2, 'abandon');
