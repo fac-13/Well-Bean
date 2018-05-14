@@ -9,13 +9,13 @@ test('Test getActiveChallenges query', (t) => {
   runDbBuild()
     .then((res) => {
       t.ok(res);
-      return getActiveChallenge();
+      return getActiveChallenge(1);
     })
     .then((challenges) => {
       t.deepEqual(
         challenges[0].title,
-        'Lunch walk',
-        'getAllChallenges returns first challenge title in table',
+        'Node Express',
+        'getActiveChallenge returns user 1\'s active challenge title',
       );
       t.end();
     })
