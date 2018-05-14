@@ -4,8 +4,24 @@
     <h1>Create a new challenge</h1>
   </header>
 
-  <form action="POST">
-    <label for=""></label>
+  <form name="addChallenge" action="/add-challenge" method="POST">
+    <label for="title">Challenge Title</label>
+    <input name="title" id="title" type="text" value="" placeholder="Please type a title">
+    <label for="categoryId">Please select a category</label>
+    <select name="categoryId" id="categoryId">
+      <option value="1">Fitness</option>
+      <option value="2">Nourishment</option>
+      <option value="3">Home</option>
+      <option value="4">Family</option>
+      <option value="5">Learning</option>
+      <option value="6">Mindfulness</option>
+      <option value="7">Social</option>
+      <option value="8">Romance</option>
+    </select>
+    <label for="description" id="description">Description</label>
+    <textarea name="description" id="description" cols="30" rows="10" placeholder="Please provide details of your challenge here"></textarea>
+    <input type="hidden" name="userId" value="1">
+    <input type="submit" id="submit" form="addChallenge" value="Submit">
   </form>
 
 </section>
