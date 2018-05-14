@@ -86,5 +86,5 @@ VALUES
 
 INSERT INTO user_challenges (user_id, challenges_id, status)
   VALUES (1, 1, 'finished'),
-  (2, 1, default),
+  (2, 1, 'finished'),
   (1, 2, default);

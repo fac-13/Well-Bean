@@ -24,3 +24,23 @@ test('Test getActiveChallenges query', (t) => {
       t.end();
     });
 });
+
+test('Test getActiveChallenges query for no active challenge', (t) => {
+  runDbBuild()
+    .then((res) => {
+      t.ok(res);
+      return getActiveChallenge(2);
+    })
+    .then((challenges) => {
+      t.deepEqual(
+        challenges,
+        [],
+        'getActiveChallenge returns empty array for user 2\'s active challenge query',
+      );
+      t.end();
+    })
+    .catch((e) => {
+      t.error(e);
+      t.end();
+    });
+});
