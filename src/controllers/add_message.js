@@ -3,6 +3,7 @@ const { postMessage } = require('../model/queries/');
 exports.get = (req, res) => { res.render('add_message'); };
 
 exports.post = (req, res, next) => {
+  // console.log(req.body);
   const {
     userId,
     body,
