@@ -6,7 +6,7 @@
 
   <form name="addChallenge" action="/add-challenge" method="POST">
     <label for="title">Challenge Title</label>
-    <input name="title" id="title" type="text" value="" placeholder="Please type a title">
+    <input name="title" id="title" type="text" placeholder="Please type a title">
     <label for="categoryId">Please select a category</label>
     <select name="categoryId" id="categoryId">
       <option value="1">Fitness</option>
@@ -18,10 +18,10 @@
       <option value="7">Social</option>
       <option value="8">Romance</option>
     </select>
-    <label for="description" id="description">Description</label>
+    <label for="description">Description</label>
     <textarea name="description" id="description" cols="30" rows="10" placeholder="Please provide details of your challenge here"></textarea>
     <input type="hidden" name="userId" value="1">
-    <input type="submit" id="submit" form="addChallenge" value="Submit">
+    <input type="submit" id="submit" value="Submit"> {{!-- please remember to avoid using form name in the input submit! --}}
   </form>
 
 </section>

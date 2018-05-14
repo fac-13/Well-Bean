@@ -3,6 +3,7 @@ const { postChallenge } = require('../model/queries/');
 exports.get = (req, res) => { res.render('add_challenge'); };
 
 exports.post = (req, res, next) => {
+  console.log('fuck');
   const {
     categoryId,
     userId,
