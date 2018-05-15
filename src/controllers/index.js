@@ -4,6 +4,7 @@ const router = express.Router();
 
 // require controllers
 const home = require('./home');
+const signup = require('./signup');
 const challenges = require('./challenges');
 const challenge = require('./challenge');
 const addChallenge = require('./add_challenge');
@@ -15,7 +16,7 @@ const error = require('./error');
 
 // set up routes
 router.get('/', home.get);
-router.get('/signup', (req, res) => res.send('Hello Signup'));
+router.get('/signup', signup.get);
 router.get('/challenges', challenges.get);
 router.get('/challenge/:id', challenge.get);
 router.get('/add-challenge', addChallenge.get); // get addChallenge form
