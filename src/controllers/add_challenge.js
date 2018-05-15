@@ -9,7 +9,6 @@ exports.post = (req, res, next) => {
     title,
     description,
   } = req.body;
-
   if (!title) res.render('add_challenge', { error: 'title' });
   if (!description) res.render('add_challenge', { error: 'description' });
   postChallenge(categoryId, userId, title, description)

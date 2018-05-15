@@ -11,6 +11,7 @@ const userChallenge = require('./user_challenge');
 
 const updateChallenge = require('./update_challenge');
 const messages = require('./messages');
+const addMessage = require('./add_message');
 const error = require('./error');
 
 // set up routes
@@ -19,10 +20,12 @@ router.get('/challenges', challenges.get);
 router.get('/challenge/:id', challenge.get);
 router.get('/add-challenge', addChallenge.get); // get addChallenge form
 router.get('/messages', messages.get);
+router.get('/add-message', addMessage.get);
 
 router.post('/user-challenge/:id', userChallenge.post); // select a challenge
 router.post('/update-challenge/:status/:id', updateChallenge.post);
 router.post('/add-challenge', addChallenge.post);
+router.post('/add-message', addMessage.post);
 
 router.use(error.client);
 router.use(error.server);
