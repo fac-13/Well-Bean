@@ -15,6 +15,7 @@ const error = require('./error');
 
 // set up routes
 router.get('/', home.get);
+router.get('/signup', (req, res) => res.send('Hello Signup'));
 router.get('/challenges', challenges.get);
 router.get('/challenge/:id', challenge.get);
 router.get('/add-challenge', addChallenge.get); // get addChallenge form
