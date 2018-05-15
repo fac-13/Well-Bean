@@ -30,7 +30,7 @@
     "tape": "^4.9.0"
   },
   "dependencies": {
-    "bcryptjs": "^2.4.3",
+    "bcrypt": "*",
     "body-parser": "^1.18.2",
     "cookie-session": "^2.0.0-beta.3",
     "dotenv": "^5.0.1",
