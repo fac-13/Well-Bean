@@ -2,17 +2,17 @@
   <h1>Welcome to Well-Bean</h1>
   <article>
     <h3>Signup Here</h3>
-    <form action="" method="POST">
+    <form action="/signup" method="POST">
       <fieldset>
         <legend>Well-Bean!</legend>
         <label for="username">Username</label>
-        <input type="text" name="username" id="username">
+        <input type="text" name="username" id="username" placeholder="choose a username" required>
         <label for="email">Email</label>
-        <input type="email" name="email" id="email">
+        <input type="email" name="email" id="email" placeholder="add your email" required>
         <label for="password">Password</label>
-        <input type="password" name="password" id="password">
+        <input type="password" name="password" id="password" placeholder="enter a password" required>
         <label for="confirm_password">Confirm Password</label>
-        <input type="password" name="confirm_password" id="confirm_password">
+        <input type="password" name="confirm_password" id="confirm_password" placeholder="confirm your password" required>
         <input type="submit" value="SIGNUP!">
       </fieldset>
     </form>
