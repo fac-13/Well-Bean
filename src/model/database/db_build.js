@@ -10,6 +10,6 @@ const build = sql('./db_build.sql');
 // database building for test
 const runDbBuild = () => db.query(build);
 
-runDbBuild();
+// runDbBuild();
 
 module.exports = runDbBuild;
