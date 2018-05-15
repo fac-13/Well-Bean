@@ -14,8 +14,8 @@ test('Test getActiveChallenges query', (t) => {
     .then((challenges) => {
       t.deepEqual(
         challenges[0].title,
-        'Node Express',
-        'getActiveChallenge returns user 1\'s active challenge title',
+        'Morning Hydration',
+        "getActiveChallenge returns user 1's active challenge title",
       );
       t.end();
     })
@@ -35,7 +35,7 @@ test('Test getActiveChallenges query for no active challenge', (t) => {
       t.deepEqual(
         challenges,
         [],
-        'getActiveChallenge returns empty array for user 2\'s active challenge query',
+        "getActiveChallenge returns empty array for user 2's active challenge query",
       );
       t.end();
     })
