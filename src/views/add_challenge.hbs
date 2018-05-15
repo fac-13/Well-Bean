@@ -7,8 +7,9 @@
   <form name="addChallenge" action="/add-challenge" method="POST">
     <label for="title">Challenge Title</label>
     <input name="title" id="title" type="text" placeholder="Please type a title">
-    <label for="categoryId">Please select a category</label>
+    <label for="categoryId">Category</label>
     <select name="categoryId" id="categoryId">
+      <option value="" disabled selected>Please select an option from below</option>
       <option value="1">Fitness</option>
       <option value="2">Nourishment</option>
       <option value="3">Home</option>
