@@ -1,3 +1,4 @@
+// This test is not fully working yet. please ignore the test logic for now
 const test = require('tape'); //eslint-disable-line
 const request = require('supertest'); //eslint-disable-line
 // require test database build script
@@ -16,7 +17,7 @@ test('Test postMessage query', (t) => {
     })
     .then(id => getMessages())
     .then((messages) => {
-      t.ok([0], 'postMessage returns last added message');
+      t.ok(messages[0], 'postMessage returns last added message');
       t.end();
     })
     .catch((e) => {
