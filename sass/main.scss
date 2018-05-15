@@ -1,0 +1,8 @@
+@import 'reset';
+@import 'styleguide';
+
+body {
+  margin: 0;
+  background-color: $primary-colour;
+  font-family: $body-font;
+}
