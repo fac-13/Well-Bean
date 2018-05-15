@@ -9,7 +9,8 @@ exports.post = (req, res, next) => {
     body,
   } = req.body;
   if (!body) res.render('add_message', { error: 'message' });
-  postMessage(userId, body)
-    .then(() => res.redirect('/messages'))
-    .catch(e => next(e));
+  try {
+    postMessage(userId, body);
+    res.redirect('/messages');
+  } catch (e) { next(e); }
 };
