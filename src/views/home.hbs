@@ -5,14 +5,33 @@
     <h3>Active Challenge</h3>
     <img src="/img/{{lowercase category}}.svg" alt="icon for {{category}}" height="60px" width="60px">
     <p>{{title}}</p>
+    <a href="#modal-complete" data-modal-open>&#10003;</a>
+    <a href="#modal-abandon" data-modal-open>&times;</a>
+  </div>
+
+  <div id="modal-complete" style="display: none">
+    <h3>Good job!</h3>
     <form action="/update-challenge/complete/{{id}}" method="POST">
-      <input type="submit" value="&#10003">
+      <input id="js-submit" type="submit" value="OK">
     </form>
+  </div>
+  <div id="modal-abandon" style="display: none">
+    <h3>Are you sure?</h3>
     <form action="/update-challenge/abandon/{{id}}" method="POST">
-      <input type="submit" value="X">
+      <input type="submit" value="Yes">
     </form>
+  </div>
+  
+  <div class="modal">
+    <div class="modal-inner">
+      <a data-modal-close>&times;</a>
+      <div class="modal-content"></div>
+    </div>
   </div>
   {{else}}
   <p>no active</p>
   {{/if}}
+
+  
+  
 </section>
