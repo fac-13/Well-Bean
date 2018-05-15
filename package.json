@@ -7,7 +7,8 @@
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
     "test": "NODE_ENV=test nyc tape src/test/**/*.test.js | tap-spec",
-    "build:db": "node src/model/database/db_build.js"
+    "build:db": "node src/model/database/db_build.js",
+    "sass": "node-sass --watch sass -o css"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.11.0",
+    "node-sass": "^4.9.0",
     "nodemon": "^1.17.4",
     "nyc": "^11.7.2",
     "supertest": "^3.0.0",
