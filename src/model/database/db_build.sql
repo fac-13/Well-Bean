@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS users, messages, challenges, categories, user_challenges, msg_report, chg_report
 CASCADE;
+
 CREATE TABLE users
 (
     id BIGSERIAL PRIMARY KEY,
@@ -8,6 +9,7 @@ CREATE TABLE users
     email VARCHAR(100) NOT NULL,
     user_since TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
+
 CREATE TABLE messages
 (
     id BIGSERIAL PRIMARY KEY,
@@ -15,11 +17,13 @@ CREATE TABLE messages
     body VARCHAR(250) NOT NULL,
     added TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
+
 CREATE TABLE categories
 (
     id SERIAL PRIMARY KEY,
     name VARCHAR(30) NOT NULL
 );
+
 CREATE TABLE challenges
 (
     id BIGSERIAL PRIMARY KEY,
@@ -62,12 +66,14 @@ VALUES
     ('Po', 'password123', 'po@winky.com'),
     ('Dipsy', 'password123', 'dipsy@winky.com'),
     ('Lala', 'password123', 'lala@winky.com');
+
 INSERT INTO messages (user_id, body)
 VALUES
     (1, 'You can do it!'),
     (2, 'Great day for a walk!'),
     (3, 'Fighting!'),
     (4, 'Strut your stuff!');
+
 INSERT INTO categories (name)
 VALUES
     ('Fitness'),--1
@@ -78,6 +84,7 @@ VALUES
     ('Mindfulness'),--6
     ('Social'),--7
     ('Romance');--8
+    
 INSERT INTO challenges(category_id, user_id, title, description)
 VALUES
     (2, NULL, 'Morning Hydration', 'Drink water in the morning to hydrate your body. People don''t realise you sleep for approximately 8 hours without drinking water. Your body is dehydrated in the morning, get a good kickstart to the day!'),
