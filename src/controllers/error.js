@@ -8,7 +8,6 @@ exports.client = (req, res) => {
 };
 
 exports.server = (err, req, res, next) => { //eslint-disable-line
-  console.log(err);
   res.status(500)
     .render('error', {
       layout: 'basic',
