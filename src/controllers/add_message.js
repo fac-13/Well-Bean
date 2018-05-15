@@ -5,13 +5,12 @@ exports.get = (req, res) => {
 };
 
 exports.post = (req, res, next) => {
-  // console.log(req.body);
   const { userId, body } = req.body;
-  if (!body) res.render('add_message', { error: 'message' });
-  try {
-    postMessage(userId, body);
-    res.redirect('/messages');
-  } catch (e) {
-    next(e);
+  if (body) {
+    postMessage(userId, body)
+      .then(() => res.redirect('/messages'))
+      .catch(e => next(e));
+  } else {
+    res.render('add_message', { error: 'message' });
   }
 };

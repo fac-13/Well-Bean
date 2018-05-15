@@ -1,4 +1,4 @@
-const getMessages = require('./../model/queries/get_messages.js');
+const { getMessages } = require('../model/queries/');
 
 exports.get = (req, res, next) => {
   getMessages()
