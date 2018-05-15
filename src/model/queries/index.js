@@ -7,6 +7,8 @@ const postChallenge = require('./post_challenge');
 const postMessage = require('./post_message');
 const postUserChallenge = require('./post_user_challenge');
 
+const updateUserChallenge = require('./update_user_challenge');
+
 module.exports = {
   getAllChallenges,
   getActiveChallenge,
@@ -15,4 +17,5 @@ module.exports = {
   postChallenge,
   postMessage,
   postUserChallenge,
+  updateUserChallenge,
 };
