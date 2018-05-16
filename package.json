@@ -7,6 +7,7 @@
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
     "test": "NODE_ENV=test nyc tape src/test/**/*.test.js | tap-spec",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "build:db": "node src/model/database/db_build.js",
     "sass": "node-sass --watch sass -o public/css"
   },
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/fac-13/Well-Bean#readme",
   "devDependencies": {
+    "codecov": "^3.0.2",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.11.0",
