@@ -23,12 +23,58 @@ test('Test add message POST route', (t) => {
       request(router)
         .post('/add-message')
         .send({
-          body: 'Test message',
+          userId: 1,
+          body: 'test message',
         })
         .expect(302)
         .end((err, res) => {
           t.error(err);
           t.ok(res, 'response has something from query');
+          t.end();
+        });
+    })
+    .catch((e) => {
+      t.error(e);
+      t.end();
+    });
+});
+
+test('Test add message POST route with invalid userId', (t) => {
+  runDbBuild()
+    .then((dbRes) => {
+      t.ok(dbRes, 'database built');
+      request(router)
+        .post('/add-message')
+        .send({
+          userId: 'one',
+          body: 'test message',
+        })
+        .expect(500)
+        .end((err, res) => {
+          t.error(err);
+          t.ok(res.text.includes('500'), 'response has 500 error message');
+          t.end();
+        });
+    })
+    .catch((e) => {
+      t.error(e);
+      t.end();
+    });
+});
+
+test('Test add message POST route with invalid body', (t) => {
+  runDbBuild()
+    .then((dbRes) => {
+      t.ok(dbRes, 'database built');
+      request(router)
+        .post('/add-message')
+        .send({
+          userId: 1,
+        })
+        .expect(200)
+        .end((err, res) => {
+          t.error(err);
+          t.ok(res.text.includes('Please write'), 'response has error message');
           t.end();
         });
     })
