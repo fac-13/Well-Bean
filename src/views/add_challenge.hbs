@@ -9,15 +9,15 @@
     <input name="title" id="title" type="text" placeholder="Please type a title" value={{titleValue}}>
     <label for="categoryId">Category</label>
     <select name="categoryId" id="categoryId">
-      <option value="" disabled selected>Please select an option from below</option>
-      <option value="1">Fitness</option>
-      <option value="2">Nourishment</option>
-      <option value="3">Home</option>
-      <option value="4">Family</option>
-      <option value="5">Learning</option>
-      <option value="6">Mindfulness</option>
-      <option value="7">Social</option>
-      <option value="8">Romance</option>
+      <option value="" disabled {{#unless categoryId}}selected{{/unless}}>Please select an option from below</option>
+      <option value="1" {{#equals categoryId 1}}selected{{/equals}}>Fitness</option>
+      <option value="2" {{#equals categoryId 2}}selected{{/equals}}>Nourishment</option>
+      <option value="3" {{#equals categoryId 3}}selected{{/equals}}>Home</option>
+      <option value="4" {{#equals categoryId 4}}selected{{/equals}}>Family</option>
+      <option value="5" {{#equals categoryId 5}}selected{{/equals}}>Learning</option>
+      <option value="6" {{#equals categoryId 6}}selected{{/equals}}>Mindfulness</option>
+      <option value="7" {{#equals categoryId 7}}selected{{/equals}}>Social</option>
+      <option value="8" {{#equals categoryId 8}}selected{{/equals}}>Romance</option>
     </select>
     {{#if errorCategory}}
     <span>{{errorCategory}}</span>
