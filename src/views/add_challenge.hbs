@@ -21,6 +21,9 @@
     </select>
     <label for="description">Description</label>
     <textarea name="description" id="description" cols="30" rows="10" placeholder="Please provide details of your challenge here"></textarea>
+    {{#if error}}
+    <span>{{error}}</span>
+    {{/if}}
     <input type="hidden" name="userId" value="1">
     <input type="submit" id="submit" value="Submit"> {{!-- please remember to avoid using form name in the input submit! --}}
   </form>
