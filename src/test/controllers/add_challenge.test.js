@@ -11,12 +11,12 @@ test('Test add challenge GET route', (t) => {
     .expect('Content-Type', /html/)
     .end((err, res) => {
       t.error(err);
-      t.ok(res.text.includes('hallenge'), 'response prompts user to add challenge');
+      t.ok(res.text.includes('challenge'), 'response prompts user to add challenge');
       t.end();
     });
 });
 
-test('Test add chellenge POST route', (t) => {
+test('Test add challenge POST route', (t) => {
   runDbBuild()
     .then((dbRes) => {
       t.ok(dbRes, 'database built');
