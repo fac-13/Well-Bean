@@ -24,6 +24,7 @@ test('Test add-challenge POST route', (t) => {
         .post('/add-challenge')
         .send({
           categoryId: 2,
+          userId: 1,
           title: 'Add new',
           description: 'This is a new test challenge',
         })
@@ -47,7 +48,7 @@ test('Test add-challenge POST route with invalid userId', (t) => {
       request(router)
         .post('/add-challenge')
         .send({
-          challengeId: 1,
+          categoryId: 1,
           userId: 'one',
           title: 'title',
           description: 'description',
@@ -64,6 +65,7 @@ test('Test add-challenge POST route with invalid userId', (t) => {
       t.end();
     });
 });
+
 test('Test add-challenge POST route with empty title', (t) => {
   runDbBuild()
     .then((dbRes) => {
@@ -71,14 +73,14 @@ test('Test add-challenge POST route with empty title', (t) => {
       request(router)
         .post('/add-challenge')
         .send({
-          challengeId: 1,
-          userId: 'one',
+          categoryId: 1,
+          userId: 1,
           description: 'description',
         })
         .expect(200)
         .end((err, res) => {
           t.error(err);
-          t.ok(res.text.includes('Please'), 'response has error message');
+          t.ok(res.text.includes('enter'), 'response has correct error message');
           t.end();
         });
     })
@@ -87,3 +89,53 @@ test('Test add-challenge POST route with empty title', (t) => {
       t.end();
     });
 });
+
+test('Test add-challenge POST route with empty description', (t) => {
+  runDbBuild()
+    .then((dbRes) => {
+      t.ok(dbRes, 'database built');
+      request(router)
+        .post('/add-challenge')
+        .send({
+          categoryId: 1,
+          userId: 1,
+          title: 'title',
+        })
+        .expect(200)
+        .end((err, res) => {
+          t.error(err);
+          t.ok(res.text.includes('enter'), 'response has correct error message');
+          t.end();
+        });
+    })
+    .catch((e) => {
+      t.error(e);
+      t.end();
+    });
+});
+
+
+test('Test add-challenge POST route with no category', (t) => {
+  runDbBuild()
+    .then((dbRes) => {
+      t.ok(dbRes, 'database built');
+      request(router)
+        .post('/add-challenge')
+        .send({
+          userId: 1,
+          description: 'description',
+          title: 'title',
+        })
+        .expect(200)
+        .end((err, res) => {
+          t.error(err);
+          t.ok(res.text.includes('choose'), 'response has correct error message');
+          t.end();
+        });
+    })
+    .catch((e) => {
+      t.error(e);
+      t.end();
+    });
+});
+

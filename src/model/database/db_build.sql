@@ -28,7 +28,7 @@ CREATE TABLE challenges
 (
     id BIGSERIAL PRIMARY KEY,
     category_id INT REFERENCES categories(id),
-    user_id BIGINT REFERENCES users(id),
+    user_id INT REFERENCES users(id),
     title VARCHAR(125) NOT NULL,
     description VARCHAR(1500) NOT NULL,
     added TIMESTAMPTZ NOT NULL DEFAULT NOW()
