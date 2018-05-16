@@ -51,7 +51,26 @@ test('Test update-challenge POST route with invalid status', (t) => {
         .expect(500)
         .end((err, res) => {
           t.error(err);
-          t.ok(res, 'response has something from query');
+          t.ok(res.text.includes('500'), 'response contains 500 error message');
+          t.end();
+        });
+    })
+    .catch((e) => {
+      t.error(e);
+      t.end();
+    });
+});
+
+test('Test update-challenge POST route with invalid id', (t) => {
+  runDbBuild()
+    .then((dbRes) => {
+      t.ok(dbRes, 'database built');
+      request(router)
+        .post('/update-challenge/complete/one')
+        .expect(500)
+        .end((err, res) => {
+          t.error(err);
+          t.ok(res.text.includes('500'), 'response contains 500 error message');
           t.end();
         });
     })
