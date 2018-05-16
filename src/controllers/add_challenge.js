@@ -9,13 +9,16 @@ exports.post = (req, res, next) => {
     categoryId, userId, title, description,
   } = req.body;
 
-  if (title && description) {
+  if (title && description && categoryId) {
     postChallenge(categoryId, userId, title, description)
       .then(() => res.redirect('/challenges'))
       .catch(e => next(e));
-  } else if (!title) {
-    res.render('add_challenge', { error: 'title' });
-  } else if (!description) {
-    res.render('add_challenge', { error: 'description' });
+  } else {
+    res.render('add_challenge', {
+      titleValue: title || null,
+      descriptionValue: description || null,
+      errorText: !title || !description ? 'Please enter a title and description, can not be empty' : null,
+      errorCategory: !categoryId ? 'Please choose a category' : null,
+    });
   }
 };

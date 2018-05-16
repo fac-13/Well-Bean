@@ -4,7 +4,7 @@ const router = require('../../app.js');
 // require test database build script
 const runDbBuild = require('../../model/database/db_build');
 
-test('Test add message GET route', (t) => {
+test('Test add-message GET route', (t) => {
   request(router)
     .get('/add-message')
     .expect(200)
@@ -16,7 +16,7 @@ test('Test add message GET route', (t) => {
     });
 });
 
-test('Test add message POST route', (t) => {
+test('Test add-message POST route', (t) => {
   runDbBuild()
     .then((dbRes) => {
       t.ok(dbRes, 'database built');
@@ -39,7 +39,7 @@ test('Test add message POST route', (t) => {
     });
 });
 
-test('Test add message POST route with invalid userId', (t) => {
+test('Test add-message POST route with invalid userId', (t) => {
   runDbBuild()
     .then((dbRes) => {
       t.ok(dbRes, 'database built');
@@ -62,7 +62,7 @@ test('Test add message POST route with invalid userId', (t) => {
     });
 });
 
-test('Test add message POST route with invalid body', (t) => {
+test('Test add-message POST route with invalid body', (t) => {
   runDbBuild()
     .then((dbRes) => {
       t.ok(dbRes, 'database built');
