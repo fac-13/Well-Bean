@@ -11,6 +11,6 @@ exports.post = (req, res, next) => {
       .then(() => res.redirect('/messages'))
       .catch(e => next(e));
   } else {
-    res.render('add_message', { error: 'message' });
+    res.render('add_message', { error: 'Please write a message, can not be empty' });
   }
 };

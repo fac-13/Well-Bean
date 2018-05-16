@@ -22,3 +22,23 @@ test('Test select challenge POST route', (t) => {
       t.end();
     });
 });
+
+test('Test select challenge POST route with invalid challenge id', (t) => {
+  runDbBuild()
+    .then((dbRes) => {
+      t.ok(dbRes, 'database built');
+      request(router)
+        .post('/user-challenge/one')
+        .expect(500)
+        .expect('Content-Type', /html/)
+        .end((err, res) => {
+          t.error(err);
+          t.ok(res.text.includes('500'), 'response contains 500 error message');
+          t.end();
+        });
+    })
+    .catch((e) => {
+      t.error(e);
+      t.end();
+    });
+});

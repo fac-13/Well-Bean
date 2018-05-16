@@ -8,7 +8,10 @@
     <h4></h4>
     <label for="body">Message</label>
     <textarea name="body" id="body" cols="30" rows="10" placeholder="Please type your message here"></textarea>
-    <input type="hidden" name="userId" value="1">
+    {{#if error}}
+    <span>{{error}}</span>
+    {{/if}}
+    <input type="hidden" name="userId" value="1"> {{!-- Please change userId value to be set by cookie in future --}}
     <input type="submit" id="submit" value="Submit"> {{!-- please remember to avoid using form name in the input submit! --}}
   </form>
 
