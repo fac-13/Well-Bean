@@ -12,7 +12,14 @@ exports.post = (req, res, next) => {
       .then(hash =>
         postNewUser(username, hash, email)
           .then(() => res.redirect('/'))
-          .catch(e => next(e)))
+          .catch((e) => {
+            if (e.detail.includes('already exists')) {
+              console.log(e.detail);
+              res.render('signup', { error: 'username already exists' });
+            } else {
+              next(e);
+            }
+          }))
       .catch(err => next(err));
   } else if (!username) {
     res.render('signup', { error: 'username' });
