@@ -4,7 +4,7 @@ const router = require('../../app.js');
 // require test database build script
 const runDbBuild = require('../../model/database/db_build');
 
-test('Test select challenge POST route', (t) => {
+test('Test GET messages route', (t) => {
   runDbBuild()
     .then((dbRes) => {
       t.ok(dbRes, 'database built');
