@@ -1,9 +1,14 @@
-language: node_js
+language: 
+  - node_js
 node_js:
- - "8"
+  - "8"
+env:
+  - CODECOV_TOKEN=c2b526b2-a61e-467f-ab28-439146cf1984
 services:
   - postgresql
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
+after_success: 
+  - npm run coverage
 notifications:
   - email: false
