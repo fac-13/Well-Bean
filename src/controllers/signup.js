@@ -16,10 +16,9 @@ exports.post = (req, res, next) => {
             if (e.detail.includes('already exists')) {
               console.log(e.detail);
               res.render('signup', {
-                username,
-                email,
-                password: null,
-                errorText: !username || !email || !password ? 'Username already taken. Please use login to your account or choose a new username' : null,
+                usernameValue: username,
+                emailValue: email,
+                errorText: 'Username already taken. Please use login to your account or choose a new username',
               });
             } else {
               next(e);
@@ -28,9 +27,8 @@ exports.post = (req, res, next) => {
       .catch(err => next(err));
   } else {
     res.render('signup', {
-      username: username || null,
-      email: email || null,
-      password: null,
+      usernameValue: username || null,
+      emailValue: email || null,
       errorText: !username || !email || !password ? 'Please enter your username, your email and a valid password, can not be empty' : null,
     });
   }
