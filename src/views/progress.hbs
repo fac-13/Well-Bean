@@ -1,0 +1,18 @@
+<section>
+  <img src="http://sigil.cupcake.io/{{username}}" alt="user icon {{username}}" height="60px" width="60px">
+  <h2>Hello {{username}}</h2>
+  <p>Please find a list of all your challenges below:</p>
+</section>
+
+<section>
+  <ul>
+    {{#each userChallenges}}
+    <li>
+      <div>
+        <h3>{{this.category}}</h3>
+        <p>{{this.title}}</p>
+      </div>
+    </li>
+    {{/each}}
+  </ul>
+</section>
