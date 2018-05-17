@@ -16,6 +16,7 @@ exports.post = (req, res, next) => {
             .then((newUser) => {
               req.session.userId = newUser[0].id;
               req.session.loggedIn = true;
+              req.session.userName = username;
               res.redirect('/');
             })
             .catch((e) => {
