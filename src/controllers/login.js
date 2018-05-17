@@ -15,7 +15,7 @@ exports.post = (req, res, next) => {
         bcrypt.compare(inputPassword, password)
           .then((isMatch) => {
             if (isMatch) {
-              res.redirect('/', { id, username });
+              res.redirect('/');
             } else {
               res.render('login', { error: 'Password is incorrect' });
             }
