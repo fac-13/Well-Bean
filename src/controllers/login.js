@@ -1,5 +1,5 @@
 exports.get = (req, res) => {
-  res.send('Hello Login');
+  res.render('login');
 };
 
 // exports.post = (req, res, next) =>
