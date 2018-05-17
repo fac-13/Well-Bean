@@ -148,8 +148,7 @@ main {
 
 footer {
   height: 8.77193%;
-  width: 100%;
-  background-color: #74dfb5; }
+  width: 100%; }
 
 nav {
   display: -webkit-box;
@@ -161,7 +160,8 @@ nav {
   justify-content: space-around;
   align-items: center;
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  background-color: #74dfb5; }
   nav a {
     display: -webkit-box;
     display: -moz-box;

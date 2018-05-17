@@ -1,7 +1,7 @@
 const { postChallenge } = require('../model/queries/');
 
 exports.get = (req, res) => {
-  res.render('add_challenge');
+  res.render('add_challenge', { state: { challenges: true } });
 };
 
 exports.post = (req, res, next) => {

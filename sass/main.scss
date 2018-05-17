@@ -33,13 +33,13 @@ main {
 footer {
   height: 50 / 570 * 100%;
   width: 100%;
-  background-color: $primary-colour;
 }
 
 nav {
   @include flex-container(row, space-around, center);
   height: 100%;
   width: 100%;
+  background-color: $primary-colour;
 
   a {
     @include flex-container(column, space-around, center);
