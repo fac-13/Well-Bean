@@ -3,7 +3,7 @@ const request = require('supertest'); //eslint-disable-line
 
 const { lowercase } = require('../../views/helpers');
 
-test.only('Test lowercase helper', (t) => {
+test('Test lowercase helper', (t) => {
   const actual = lowercase('Capital');
   const expected = 'capital';
   t.equal(actual, expected, 'should return a string in all lowercase');
