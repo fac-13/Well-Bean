@@ -1,19 +1,19 @@
 <section>
   <h1>Welcome to Well-Bean</h1>
   <article>
-    <h3>Login Here</h3>
     <form action="/login" method="POST">
       <fieldset>
-        <legend>Well-Bean!</legend>
+        <legend>Login Here</legend>
         <label for="user">Username/Email</label>
         <input type="text" name="inputUser" id="user" placeholder="enter your username or email">
         <label for="password">Password</label>
         <input type="password" name="inputPassword" id="password" placeholder="enter a password">
+        {{#if error}}
+        <span>{{error}}</span>
+        {{/if}}
         <input type="submit" value="Login">
       </fieldset>
-      {{#if error}}
-      <span>{{error}}</span>
-      {{/if}}
+      <a href="/signup">New user? Register here</a>
     </form>
   </article>
 </section>

@@ -1,0 +1,18 @@
+<div id="complete-modal" class="modal__window">
+  <div class="modal__box">
+    <span class="modal__text">Well done!</span>
+    <form action="/update-challenge/complete/{{id}}" method="POST">
+      <input class="modal__btn" type="submit" value="OK">
+    </form>
+  </div>
+</div>
+
+<div id="abandon-modal" class="modal__window">
+  <div class="modal__box">
+    <span class="modal__text">Are you sure?</span>
+    <form action="/update-challenge/abandon/{{id}}" method="POST">
+      <input class="modal__btn" type="submit" value="Yes">
+    </form>
+    <a class="modal__btn" href="#modal-close">Cancel</a>
+  </div>
+</div>

@@ -1,0 +1,106 @@
+@import 'styleguide';
+@import 'mixins';
+
+.welcome {
+  @include flex-container(column, center, center);
+  height: 130 / 520 * 100%;
+  width: 100%;
+  background-color: $secondary-colour;
+  border-radius: 5px;
+}
+
+.welcome__title {
+  font-family: $header-font;
+  font-size: 24px;
+  color: $black;
+}
+
+.active {
+  @include flex-container(column, space-around, center);
+  height: 340 / 520 * 100%;
+  width: 100%;
+  border-radius: 5px;
+  border-width: 4px;
+  border-style: solid;
+  box-sizing: border-box;
+}
+
+.fitness {
+  border-color: $fitness;
+}
+.social {
+  border-color: $social;
+}
+.family {
+  border-color: $family;
+}
+.mindfulness {
+  border-color: $mindfulness;
+}
+.nourishment {
+  border-color: $nourishment;
+}
+.home {
+  border-color: $home;
+}
+.romance {
+  border-color: $romance;
+}
+.learning {
+  border-color: $learning;
+}
+
+.active__cat {
+  @include flex-container(column, center, center);
+  border-radius: 50%;
+  width: 90 / 300 * 100%;
+  height: 90 / 300 * 100%;
+  border-width: 4px;
+  border-style: solid;
+}
+
+.active__img {
+  width: 50 / 90 * 100%;
+  height: 50 / 90 * 100%;
+}
+
+.active__title {
+  font-size: 18px;
+}
+
+.active__btns {
+  @include flex-container(row, space-around, center);
+  height: 60 / 300 * 100%;
+  width: 100%;
+}
+
+.active__modal {
+  @include flex-container(column, center, center);
+  background-color: $primary-colour;
+  border-radius: 50%;
+  width: 60 / 300 * 100%;
+  height: 100%;
+}
+
+.active__modal--red {
+  background-color: $family;
+}
+
+.active__btn {
+  text-decoration: none;
+  font-size: 50 / 60 * 100px;
+  font-family: $body-font;
+  text-decoration: none;
+  color: $black;
+}
+
+.not-active {
+  @include flex-container(column, center, center);
+  height: 340 / 520 * 100%;
+  width: 100%;
+  border-radius: 5px;
+  border: 4px solid $black;
+  box-sizing: border-box;
+}
+
+@import 'modal';
