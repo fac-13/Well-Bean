@@ -1,7 +1,7 @@
 const { postUserChallenge } = require('../model/queries/');
 
 exports.post = (req, res, next) => {
-  const userId = 1;
+  const { userId } = req.session;
   const challengeId = req.params.id;
 
   postUserChallenge(userId, challengeId)
