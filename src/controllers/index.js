@@ -6,6 +6,7 @@ const router = express.Router();
 const home = require('./home');
 const signup = require('./signup');
 const login = require('./login');
+const logout = require('./logout');
 const challenges = require('./challenges');
 const challenge = require('./challenge');
 const addChallenge = require('./add_challenge');
@@ -20,6 +21,7 @@ const error = require('./error');
 router.get('/', home.get);
 router.get('/signup', signup.get); // get signup form
 router.get('/login', login.get); // get login form
+router.get('/logout', logout.get);
 router.get('/challenges', challenges.get);
 router.get('/challenge/:id', challenge.get);
 router.get('/add-challenge', addChallenge.get); // get addChallenge form
