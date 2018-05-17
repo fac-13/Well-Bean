@@ -15,6 +15,7 @@ exports.post = (req, res, next) => {
       .catch(e => next(e));
   } else {
     res.render('add_challenge', {
+      state: { challenges: true },
       titleValue: title || null,
       categoryId: parseInt(categoryId, 10),
       descriptionValue: description || null,
