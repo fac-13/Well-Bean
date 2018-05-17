@@ -55,12 +55,12 @@ CREATE TABLE chg_report
 INSERT INTO users
     (username, password, email)
 VALUES
-    ('Tinky Winky', 'password123', 'tinky@winky.com'),
-    ('Po', 'password123', 'po@winky.com'),
-    ('Dipsy', 'password123', 'dipsy@winky.com'),
-    ('Lala', 'password123', 'lala@winky.com');
-INSERT INTO messages
-    (user_id, body)
+    ('Tinky Winky', '$2b$10$GyfG3Buz.LZ7uF6KsnaQveq.s.gibBhHXYJ8PACpcSzfrCdwn/72S', 'tinky@winky.com'),
+    ('Po', '$2b$10$GyfG3Buz.LZ7uF6KsnaQveq.s.gibBhHXYJ8PACpcSzfrCdwn/72S', 'po@winky.com'),
+    ('Dipsy', '$2b$10$GyfG3Buz.LZ7uF6KsnaQveq.s.gibBhHXYJ8PACpcSzfrCdwn/72S', 'dipsy@winky.com'),
+    ('Lala', '$2b$10$GyfG3Buz.LZ7uF6KsnaQveq.s.gibBhHXYJ8PACpcSzfrCdwn/72S', 'lala@winky.com');
+
+INSERT INTO messages (user_id, body)
 VALUES
     (1, 'You can do it!'),
     (2, 'Great day for a walk!'),
