@@ -12,7 +12,11 @@ test('Test getUser query', (t) => {
       return getUser('Dipsy');
     })
     .then((uRes) => {
-      t.equal(uRes[0].password, 'password123', 'Dipsy\'s password is exposed');
+      t.equal(
+        uRes[0].password,
+        '$2b$10$GyfG3Buz.LZ7uF6KsnaQveq.s.gibBhHXYJ8PACpcSzfrCdwn/72S',
+        "Dipsy's password is correct",
+      );
       t.end();
     })
     .catch((e) => {
@@ -20,4 +24,3 @@ test('Test getUser query', (t) => {
       t.end();
     });
 });
-
