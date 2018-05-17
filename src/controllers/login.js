@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const { getUser } = require('../model/queries/');
 
 exports.get = (req, res) => {
-  res.render('login');
+  res.render('login', { layout: 'basic' });
 };
 
 exports.post = (req, res, next) => {

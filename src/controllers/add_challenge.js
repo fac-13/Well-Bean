@@ -1,7 +1,7 @@
 const { postChallenge } = require('../model/queries/');
 
 exports.get = (req, res) => {
-  res.render('add_challenge');
+  res.render('add_challenge', { state: { challenges: true } });
 };
 
 exports.post = (req, res, next) => {
@@ -15,6 +15,7 @@ exports.post = (req, res, next) => {
       .catch(e => next(e));
   } else {
     res.render('add_challenge', {
+      state: { challenges: true },
       titleValue: title || null,
       categoryId: parseInt(categoryId, 10),
       descriptionValue: description || null,
