@@ -6,15 +6,18 @@
       <fieldset>
         <legend>Well-Bean!</legend>
         <label for="username">Username</label>
-        <input type="text" name="username" id="username" placeholder="choose a username" required>
+        <input type="text" name="username" id="username" value="{{usernameValue}}" placeholder="choose a username">
         <label for="email">Email</label>
-        <input type="email" name="email" id="email" placeholder="add your email" required>
+        <input type="email" name="email" id="email" value="{{emailValue}}" placeholder="add your email">
         <label for="password">Password</label>
-        <input type="password" name="password" id="password" placeholder="enter a password" required>
+        <input type="password" name="password" id="password" placeholder="enter a password">
         <label for="confirm_password">Confirm Password</label>
-        <input type="password" name="confirm_password" id="confirm_password" placeholder="confirm your password" required>
+        <input type="password" name="confirm_password" id="confirm_password" placeholder="confirm your password">
         <input type="submit" value="SIGNUP!">
       </fieldset>
+      {{#if errorText}}
+      <span>{{errorText}}</span>
+      {{/if}}
     </form>
   </article>
 </section>

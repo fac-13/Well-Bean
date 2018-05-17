@@ -16,7 +16,7 @@ test('Test signup GET route', (t) => {
     });
 });
 
-test('Test signup POST route', (t) => {
+test('Test signup POST route - new user', (t) => {
   runDbBuild()
     .then((dbRes) => {
       t.ok(dbRes, 'database built');
@@ -27,10 +27,36 @@ test('Test signup POST route', (t) => {
           password: 'madskillz',
           email: 'email@email.com',
         })
-        .expect(302)
+        .expect(200)
         .end((err, res) => {
           t.error(err);
-          t.ok(res, 'response has something from query');
+          t.ok(res, 'new user successfully signed up');
+          t.end();
+        });
+    })
+    .catch((e) => {
+      t.error(e);
+      t.end();
+    });
+});
+
+
+test('Test signup POST route - existing user', (t) => {
+  runDbBuild()
+    .then((dbResponse) => {
+      t.ok(dbResponse, 'database built');
+      request(router)
+        .post('/signup')
+        .send({
+          username: 'Dipsy',
+          email: 'dipsy@winky.com',
+          password: 'password123',
+          confirmPassword: 'password12',
+        })
+        .expect(200)
+        .end((error, response) => {
+          t.error(error);
+          t.ok(response, 'warning issued that user exists');
           t.end();
         });
     })
