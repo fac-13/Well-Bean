@@ -1,0 +1,16 @@
+<section>
+  <h1>Report an Issue</h1>
+  <article>
+    <form action="/report" method="POST">
+      <fieldset>
+        <legend>Reporting Form</legend>
+        <label for="description">Description</label>
+        <textarea name="description" id="description" cols="30" rows="10" placeholder="Please provide details of your concern here">{{descriptionValue}}</textarea>
+        <input type="submit" value="Report">
+      </fieldset>
+      {{#if error}}
+      <span>{{error}}</span>
+      {{/if}}
+    </form>
+  </article>
+</section>
