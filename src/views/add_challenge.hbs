@@ -6,7 +6,7 @@
 
   <form name="addChallenge" action="/add-challenge" method="POST">
     <label for="title">Challenge Title</label>
-    <input name="title" id="title" type="text" placeholder="Please type a title" value={{titleValue}}>
+    <input name="title" id="title" type="text" placeholder="Please type a title" value="{{titleValue}}">
     <label for="categoryId">Category</label>
     <select name="categoryId" id="categoryId">
       <option value="" disabled {{#unless categoryId}}selected{{/unless}}>Please select an option from below</option>
@@ -23,10 +23,9 @@
     <span>{{errorCategory}}</span>
     {{/if}}
     <label for="description">Description</label>
-    <textarea name="description" id="description" cols="30" rows="10" placeholder="Please provide details of your challenge here">{{descriptionValue}}</textarea>
-    {{#if errorText}}
+    <textarea name="description" id="description" cols="30" rows="10" placeholder="Please provide details of your challenge here">{{descriptionValue}}</textarea> {{#if errorText}}
     <span>{{errorText}}</span>
-    {{/if}} 
+    {{/if}}
     <input type="hidden" name="userId" value="1">
     <input type="submit" id="submit" value="Submit"> {{!-- please remember to avoid using form name in the input submit! --}}
   </form>
