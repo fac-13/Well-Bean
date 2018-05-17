@@ -106,3 +106,31 @@ test('Test add-message POST route with invalid message body', (t) => {
       t.end();
     });
 });
+
+test('Test add-message POST route with valid message body and cookie session', (t) => {
+  runDbBuild()
+    .then((dbRes) => {
+      t.ok(dbRes, 'database built');
+      createLoginCookie('/login', {
+        inputUser: 'tinky@winky.com',
+        inputPassword: 'password123',
+      }, (cookie) => {
+        request(router)
+          .post('/add-message')
+          .set('cookie', cookie)
+          .send({
+            message: 'test message',
+          })
+          .expect(302)
+          .end((err, res) => {
+            t.error(err);
+            t.ok(res.text.includes('/messages'), 'redirected to messages route');
+            t.end();
+          });
+      });
+    })
+    .catch((e) => {
+      t.error(e);
+      t.end();
+    });
+});
