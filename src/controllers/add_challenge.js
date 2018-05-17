@@ -16,6 +16,7 @@ exports.post = (req, res, next) => {
   } else {
     res.render('add_challenge', {
       titleValue: title || null,
+      categoryId: parseInt(categoryId, 10),
       descriptionValue: description || null,
       errorText: !title || !description ? 'Please enter a title and description, can not be empty' : null,
       errorCategory: !categoryId ? 'Please choose a category' : null,
