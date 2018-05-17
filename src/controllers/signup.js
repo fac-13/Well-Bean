@@ -13,7 +13,12 @@ exports.post = (req, res, next) => {
       bcrypt.hash(password, 10)
         .then(hash =>
           postNewUser(username, hash, email)
-            .then(() => res.redirect('/'))
+            .then((newUser) => {
+              req.session.userId = newUser[0].id;
+              req.session.loggedIn = true;
+              req.session.userName = username;
+              res.redirect('/');
+            })
             .catch((e) => {
               if (e.detail.includes(email)) {
                 res.render('signup', {
