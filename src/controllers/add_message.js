@@ -5,9 +5,10 @@ exports.get = (req, res) => {
 };
 
 exports.post = (req, res, next) => {
-  const { userId, body } = req.body;
-  if (body) {
-    postMessage(userId, body)
+  const { message } = req.body;
+  const { userId } = req.session;
+  if (message) {
+    postMessage(userId, message)
       .then(() => res.redirect('/messages'))
       .catch(e => next(e));
   } else {
