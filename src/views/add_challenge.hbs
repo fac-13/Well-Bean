@@ -23,7 +23,8 @@
     <span>{{errorCategory}}</span>
     {{/if}}
     <label for="description">Description</label>
-    <textarea name="description" id="description" cols="30" rows="10" placeholder="Please provide details of your challenge here">{{descriptionValue}}</textarea> {{#if errorText}}
+    <textarea name="description" id="description" cols="30" rows="10" placeholder="Please provide details of your challenge here">{{descriptionValue}}</textarea>
+    {{#if errorText}}
     <span>{{errorText}}</span>
     {{/if}}
     <input type="hidden" name="userId" value="1">

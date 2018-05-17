@@ -24,3 +24,23 @@ test('Test getUser query', (t) => {
       t.end();
     });
 });
+
+test('Test getUser query', (t) => {
+  runDbBuild()
+    .then((res) => {
+      t.ok(res);
+      return getUser('lala@winky.com');
+    })
+    .then((user) => {
+      t.equal(
+        user[0].password,
+        '$2b$10$GyfG3Buz.LZ7uF6KsnaQveq.s.gibBhHXYJ8PACpcSzfrCdwn/72S',
+        "Laa Laa's password is correct",
+      );
+      t.end();
+    })
+    .catch((e) => {
+      t.error(e);
+      t.end();
+    });
+});
