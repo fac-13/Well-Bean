@@ -5,12 +5,15 @@
     <form action="/login" method="POST">
       <fieldset>
         <legend>Well-Bean!</legend>
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" placeholder="add your email" required>
+        <label for="user">Username/Email</label>
+        <input type="text" name="inputUser" id="user" placeholder="enter your username or email">
         <label for="password">Password</label>
-        <input type="password" name="password" id="password" placeholder="enter a password" required>
+        <input type="password" name="password" id="password" placeholder="enter a password">
         <input type="submit" value="Login">
       </fieldset>
+      {{#if error}}
+      <span>{{error}}</span>
+      {{/if}}
     </form>
   </article>
 </section>
