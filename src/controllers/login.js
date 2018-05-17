@@ -13,8 +13,14 @@ exports.post = (req, res, next) => {
       if (user[0]) {
         const { id, username, password } = user[0];
         bcrypt.compare(inputPassword, password)
-          .then(() => res.redirect('/'))
-          .catch(() => res.render('login', { error: 'Password is incorrect' }));
+          .then((isMatch) => {
+            if (isMatch) {
+              res.redirect('/', { id, username });
+            } else {
+              res.render('login', { error: 'Password is incorrect' });
+            }
+          })
+          .catch(e => next(e));
       } else {
         res.render('login', { error: `User "${inputUser}" does not exist` });
       }
