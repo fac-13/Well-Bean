@@ -40,46 +40,45 @@ test('Test add-message POST route', (t) => {
 });
 
 // Callback function to sign in & grab the cookie session
-function createLoginCookie(server, loginDetails, callback) {
+const createLoginCookie = () => new Promise((resolve, reject) => {
   request(router)
-    .post(server)
-    .send(loginDetails)
-    .expect(302)
+    .post('/login')
+    .send({
+      inputUser: 'tinky@winky.com',
+      inputPassword: 'password123',
+    })
     .end((error, response) => {
       if (error) {
-        throw (error);
+        reject(error);
       }
-      const loginCookie = response.headers['set-cookie'];
-      callback(loginCookie);
+      resolve(response.headers['set-cookie']);
     });
-}
+});
 
-// The following two tests are killed due to the issue with cookie-session:
 
-// test('Test add-message POST route with invalid userId', (t) => {
-//   runDbBuild()
-//     .then((dbRes) => {
-//       t.ok(dbRes, 'database built');
-//       request(router)
-//         .post('/add-message')
-//         .send({
-//           userId: null,
-//           message: 'test message',
-//         })
-//         .expect(500)
-//         .end((err, res) => {
-//           t.error(err);
-//           t.ok(res.text.includes('500'), 'response has 500 error message');
-//           t.end();
-//         });
-//     })
-//     .catch((e) => {
-//       t.error(e);
-//       t.end();
-//     });
-// });
+test('Test add-message POST route with invalid userId', (t) => {
+  runDbBuild()
+    .then((dbRes) => {
+      t.ok(dbRes, 'database built');
+      request(router)
+        .post('/add-message')
+        .send({
+          message: 'test message',
+        })
+        .expect(500)
+        .end((err, res) => {
+          t.error(err);
+          t.ok(res.text.includes('500'), 'response has 500 error message');
+          t.end();
+        });
+    })
+    .catch((e) => {
+      t.error(e);
+      t.end();
+    });
+});
 
-test('Test add-message POST route with invalid message body', (t) => {
+test('Test add-message POST route with empty message body', (t) => {
   runDbBuild()
     .then((dbRes) => {
       t.ok(dbRes, 'database built');
