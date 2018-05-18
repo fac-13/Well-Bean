@@ -11,7 +11,7 @@ test('Test signup GET route', (t) => {
     .expect('Content-Type', /html/)
     .end((err, res) => {
       t.error(err);
-      t.ok(res.text.includes('Signup'), 'response contains signup message');
+      t.ok(res.text.includes('ignup'), 'response contains signup message');
       t.end();
     });
 });

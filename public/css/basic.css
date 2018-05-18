@@ -131,3 +131,86 @@ body {
   margin: 0;
   background-color: #74dfb5;
   font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
+
+main {
+  height: 100vh;
+}
+
+.section__signup,
+.section__login {
+  max-width: 600px;
+  margin: auto;
+  padding: 5%;
+  text-align: center;
+}
+
+.signup__title,
+.login__title {
+  font-family: "Londrina Solid";
+  color:#F5F6FA;
+  font-size: 5em;
+}
+
+.signup__title--desc,
+.login__title--desc {
+  font-size: 1.5em;
+  color: #2D3039;
+  font-weight: 700;
+  line-height: 1.7em;
+  letter-spacing: 2px;
+}
+
+.signup__desc,
+.login__desc {
+  font-size: 1.2em;
+  color: #2D3039;
+  font-weight: 700;
+  text-align: left;
+  max-width: 75%;
+  margin: auto;
+  line-height: 1.5em;
+}
+
+.signup__desc p,
+.login__desc p {
+  margin: .5em;
+}
+
+.signup__form label,
+.login__form label {
+  display: none;
+}
+
+
+.signup__form input,
+.login__form input {
+  background: #F5F6FA;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 1.2em;
+  padding: 4%;
+  width: 60%;
+  margin: 1%;
+}
+
+.signup__form--button,
+.login__form--button {
+  width: 65%;
+  background: #7BE6BB;
+  border: 3px solid #F5F6FA;
+  box-sizing: border-box;
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #F5F6FA;
+  margin: 5%;
+  padding: 3%;
+  bottom: 4%;
+}
+
+.signup__error,
+.login__error {
+  color: #D8000C;
+  background-color: #FFBABA;
+  width: 70%;
+  margin: 0em auto;
+  padding: 2%;
+}
