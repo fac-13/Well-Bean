@@ -30,7 +30,7 @@ const createLoginCookie = new Promise((resolve, reject) => {
     });
 });
 
-// Using auxiliary function in test cases.
+// Using promise function in test cases.
 
 test('Test home route with loggedIn true', (t) => {
   createLoginCookie.then((cookie) => {
