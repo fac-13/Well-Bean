@@ -144,7 +144,187 @@ body {
   margin: 0 auto; }
 
 main {
-  height: 91.22807%; }
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 91.22807%;
+  width: 93.75%; }
+
+.welcome {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 25%;
+  width: 100%;
+  background-color: #feda38;
+  border-radius: 5px; }
+
+.welcome__title {
+  font-family: "Londrina Solid", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 24px;
+  color: #2d3039; }
+
+.active {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 65.38462%;
+  width: 100%;
+  border-radius: 5px;
+  border-width: 4px;
+  border-style: solid;
+  box-sizing: border-box; }
+
+.fitness {
+  border-color: #26bbec; }
+
+.social {
+  border-color: #fbad4a; }
+
+.family {
+  border-color: #cc3333; }
+
+.mindfulness {
+  border-color: #873a87; }
+
+.nourishment {
+  border-color: #feda38; }
+
+.home {
+  border-color: #999999; }
+
+.romance {
+  border-color: #f97da3; }
+
+.learning {
+  border-color: #66cccc; }
+
+.active__cat {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 30%;
+  height: 30%;
+  border-width: 4px;
+  border-style: solid; }
+
+.active__img {
+  width: 55.55556%;
+  height: 55.55556%; }
+
+.active__title {
+  font-size: 18px; }
+
+.active__btns {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 20%;
+  width: 100%; }
+
+.active__modal {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #74dfb5;
+  border-radius: 50%;
+  width: 20%;
+  height: 100%; }
+
+.active__modal--red {
+  background-color: #cc3333; }
+
+.active__btn {
+  text-decoration: none;
+  font-size: 83.33333px;
+  font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  text-decoration: none;
+  color: #2d3039; }
+
+.not-active {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 65.38462%;
+  width: 100%;
+  border-radius: 5px;
+  border: 4px solid #2d3039;
+  box-sizing: border-box; }
+
+.modal__window {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.15);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s; }
+
+.modal__window:target {
+  opacity: 1;
+  pointer-events: auto; }
+
+.modal__box {
+  width: 400px;
+  position: relative;
+  margin: 10% auto;
+  padding: 2rem;
+  background: #999;
+  color: #ccc; }
+
+.modal__btn {
+  color: #aaa;
+  line-height: 50px;
+  font-size: 80%;
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 70px;
+  text-decoration: none; }
+
+.modal__btn:hover {
+  color: #000; }
 
 footer {
   height: 8.77193%;

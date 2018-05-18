@@ -1,18 +1,31 @@
-<section>
-  <h1>Welcome to Well-Bean</h1>
-  {{#if title}}
-  <div>
-    <h3>Active Challenge</h3>
-    <img src="/img/{{lowercase category}}.svg" alt="icon for {{category}}" height="60px" width="60px">
-    <p>{{title}}</p>
-    <form action="/update-challenge/complete/{{id}}" method="POST">
-      <input type="submit" value="&#10003">
-    </form>
-    <form action="/update-challenge/abandon/{{id}}" method="POST">
-      <input type="submit" value="&times">
-    </form>
+<header class="welcome">
+  <h1 class="welcome__title">Welcome to Well-Bean</h1>
+</header>
+
+{{#if title }}
+<section class="active {{lowercase category}}">
+  <div class="active__cat {{lowercase category}}">
+    <img class="active__img" src="/img/{{lowercase category }}.svg" alt="icon for {{ category }}" height="60px" width="60px">
   </div>
-  {{else}}
-  <p>no active</p>
-  {{/if}}
+  <h3 class="active__title">{{ title }}</h3>
+
+
+  <div class="active__btns">
+    <div class="active__modal">
+      <a class="active__btn" href="#complete-modal">&#10003</a>
+    </div>
+
+    <div class="active__modal active__modal--red">
+      <a class="active__btn" href="#abandon-modal">&times</a>
+    </div>
+  </div>
+
+  {{> modals }}
+
 </section>
+
+  {{else}}
+<section class="not-active">
+  <p class="not-active__text">no active</p>
+</section>
+  {{/if}}
