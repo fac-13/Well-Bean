@@ -1,20 +1,6 @@
 @import 'reset';
 @import 'styleguide';
-
-@mixin flexbox() {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-}
-
-@mixin flex-container($direction, $justify, $align) {
-  @include flexbox();;
-  flex-direction: $direction;
-  justify-content: $justify;
-  align-items: $align;
-}
+@import 'mixins';
 
 body {
   @include flex-container(column, center, center);
@@ -27,8 +13,12 @@ body {
 }
 
 main {
+  @include flex-container(column, space-around, center);
   height: 520 / 570 * 100%;
+  width: 300 / 320 * 100%;
 }
+
+@import 'home';
 
 footer {
   height: 50 / 570 * 100%;
@@ -61,3 +51,5 @@ nav {
     }
   }
 }
+
+

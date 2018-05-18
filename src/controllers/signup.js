@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 
 const { postNewUser } = require('../model/queries/');
 
-exports.get = (req, res) => res.render('signup');
+exports.get = (req, res) => res.render('signup', { layout: 'basic' });
 
 exports.post = (req, res, next) => {
   const {
@@ -22,11 +22,13 @@ exports.post = (req, res, next) => {
             .catch((e) => {
               if (e.detail.includes(email)) {
                 res.render('signup', {
+                  layout: 'basic',
                   usernameValue: username,
                   error: 'Email already registered. Please login to your account instead',
                 });
               } else if (e.detail.includes(username)) {
                 res.render('signup', {
+                  layout: 'basic',
                   emailValue: email,
                   error: 'Username already taken. Please login to your account or choose a new username',
                 });
@@ -37,6 +39,7 @@ exports.post = (req, res, next) => {
         .catch(e => next(e));
     } else {
       res.render('signup', {
+        layout: 'basic',
         usernameValue: username,
         emailValue: email,
         error: 'Your passwords don\'t match! Please try again',
@@ -44,6 +47,7 @@ exports.post = (req, res, next) => {
     }
   } else {
     res.render('signup', {
+      layout: 'basic',
       usernameValue: username || null,
       emailValue: email || null,
       error: !username || !email || !password ? 'Please enter your username, your email and a valid password, can not be empty' : '',

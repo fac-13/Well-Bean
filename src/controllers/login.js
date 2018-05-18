@@ -20,12 +20,18 @@ exports.post = (req, res, next) => {
               req.session.userName = username;
               res.redirect('/');
             } else {
-              res.render('login', { error: 'Password is incorrect' });
+              res.render('login', {
+                layout: 'basic',
+                error: 'Password is incorrect',
+              });
             }
           })
           .catch(e => next(e));
       } else {
-        res.render('login', { error: `User "${inputUser}" does not exist` });
+        res.render('login', {
+          layout: 'basic',
+          error: `User "${inputUser}" does not exist`,
+        });
       }
     })
     .catch(e => next(e));
