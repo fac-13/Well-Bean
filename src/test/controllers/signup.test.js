@@ -4,7 +4,7 @@ const router = require('../../app.js');
 // require test database build script
 const runDbBuild = require('../../model/database/db_build');
 
-test.only('Test signup GET route', (t) => {
+test('Test signup GET route', (t) => {
   request(router)
     .get('/signup')
     .expect(200)
