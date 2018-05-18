@@ -14,28 +14,26 @@ test('Test home route with loggedIn false', (t) => {
     });
 });
 
-// Callback function to sign in & grab the cookie session
-function createLoginCookie(server, loginDetails, callback) {
+// Promise to sign in & grab the cookie session
+const createLoginCookie = new Promise((resolve, reject) => {
   request(router)
-    .post(server)
-    .send(loginDetails)
-    .expect(302)
+    .post('/login')
+    .send({
+      inputUser: 'tinky@winky.com',
+      inputPassword: 'password123',
+    })
     .end((error, response) => {
       if (error) {
-        throw (error);
+        reject(error);
       }
-      const loginCookie = response.headers['set-cookie'];
-      callback(loginCookie);
+      resolve(response.headers['set-cookie']);
     });
-}
+});
 
 // Using auxiliary function in test cases.
 
 test('Test home route with loggedIn true', (t) => {
-  createLoginCookie('/login', {
-    inputUser: 'tinky@winky.com',
-    inputPassword: 'password123',
-  }, (cookie) => {
+  createLoginCookie.then((cookie) => {
     request(router)
       .get('/')
       .set('cookie', cookie)

@@ -39,8 +39,8 @@ test('Test add-message POST route', (t) => {
     });
 });
 
-// Callback function to sign in & grab the cookie session
-const createLoginCookie = () => new Promise((resolve, reject) => {
+// Promise to sign in & grab the cookie session
+const createLoginCookie = new Promise((resolve, reject) => {
   request(router)
     .post('/login')
     .send({
@@ -56,41 +56,38 @@ const createLoginCookie = () => new Promise((resolve, reject) => {
 });
 
 
-test('Test add-message POST route with invalid userId', (t) => {
-  runDbBuild()
-    .then((dbRes) => {
-      t.ok(dbRes, 'database built');
-      request(router)
-        .post('/add-message')
-        .send({
-          message: 'test message',
-        })
-        .expect(500)
-        .end((err, res) => {
-          t.error(err);
-          t.ok(res.text.includes('500'), 'response has 500 error message');
-          t.end();
-        });
-    })
-    .catch((e) => {
-      t.error(e);
-      t.end();
-    });
-});
+// test('Test add-message POST route with invalid userId', (t) => {
+//   runDbBuild()
+//     .then((dbRes) => {
+//       t.ok(dbRes, 'database built');
+//       request(router)
+//         .post('/add-message')
+//         .send({
+//           message: 'test message',
+//         })
+//         .expect(500)
+//         .end((err, res) => {
+//           t.error(err);
+//           t.ok(res.text.includes('500'), 'response has 500 error message');
+//           t.end();
+//         });
+//     })
+//     .catch((e) => {
+//       t.error(e);
+//       t.end();
+//     });
+// });
 
 test('Test add-message POST route with empty message body', (t) => {
   runDbBuild()
     .then((dbRes) => {
       t.ok(dbRes, 'database built');
-      createLoginCookie('/login', {
-        inputUser: 'tinky@winky.com',
-        inputPassword: 'password123',
-      }, (cookie) => {
+      createLoginCookie.then((cookie) => {
         request(router)
           .post('/add-message')
           .set('cookie', cookie)
           .send({
-            message: '',
+            message: null,
           })
           .expect(200)
           .end((err, res) => {
@@ -110,10 +107,7 @@ test('Test add-message POST route with valid message body and cookie session', (
   runDbBuild()
     .then((dbRes) => {
       t.ok(dbRes, 'database built');
-      createLoginCookie('/login', {
-        inputUser: 'tinky@winky.com',
-        inputPassword: 'password123',
-      }, (cookie) => {
+      createLoginCookie.then((cookie) => {
         request(router)
           .post('/add-message')
           .set('cookie', cookie)
