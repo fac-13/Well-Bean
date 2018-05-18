@@ -3,7 +3,7 @@ const db = require('../database/db_connection');
 const getActiveChallenge = userId =>
   db.query(
     `
-  SELECT uc.id, ch.title, cat.name AS category 
+  SELECT uc.id AS usch, ch.id, ch.title, cat.name AS category 
   FROM challenges AS ch
   LEFT JOIN categories AS cat ON ch.category_id = cat.id
   INNER JOIN user_challenges AS uc
