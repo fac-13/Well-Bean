@@ -88,4 +88,8 @@ INSERT INTO user_challenges
 VALUES
     (1, 1, 'active'),
     (2, 1, 'complete'),
-    (1, 2, 'abandon');
+    (1, 2, 'abandon'),
+    (2, 1, 'complete'),
+    (2, 3, 'complete'),
+    (2, 3, 'complete'),
+    (2, 1, 'complete');
