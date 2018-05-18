@@ -22,10 +22,10 @@ test('Test getUserChallenges function in progress route', (t) => {
   runDbBuild()
     .then((res) => {
       t.ok(res);
-      return getUserChallenges(1);
+      return getUserChallenges(2);
     })
     .then((challenges) => {
-      t.ok(challenges[0].title.includes('Morning'), 'Morning Hydration', 'getUserChallenges function is valid');
+      t.ok(challenges[1].title.includes('Morning'), 'Morning Hydration', 'getUserChallenges function is valid');
       t.end();
     })
     .catch((e) => {
