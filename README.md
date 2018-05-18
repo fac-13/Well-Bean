@@ -88,9 +88,14 @@ User Stories:
 
 ### scripts
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
-    "test": "NODE_ENV=test nyc nodemon src/tests/*.test.js | tap-spec",
-    "build": "node src/model/database/db_build.js"
+    "dev": "nodemon src/index.js",
+    "test": "NODE_ENV=test nyc tape src/test/**/*.test.js | tap-spec",
+    "test:routes": "NODE_ENV=test nyc tape src/test/controllers/*.test.js | tap-spec",
+    "test:queries": "NODE_ENV=test nyc tape src/test/model/*.test.js | tap-spec",
+    "test:helpers": "NODE_ENV=test nyc tape src/test/views/*.test.js | tap-spec",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "build:db": "node src/model/database/db_build.js" //will only run if dbBuild() is uncommented in db_build.js,
+    "sass": "node-sass --watch sass -o public/css"
 
 ### Dependencies
 - express
@@ -122,6 +127,13 @@ User Stories:
 - Development: Local
 
 ## How to run/set up local environment
+
+    git clone [Well-Bean github repo]
+    cd Well-Bean
+    npm i
+    
+Create DATABASE_URL and TES_DB_URL in a .env file
+
 
 ## Prototype Flow
 [Figma prototype](https://www.figma.com/file/JqtTX7hSQDNm6bezlf6w9SnE/Be-Well?node-id=80%3A169)
