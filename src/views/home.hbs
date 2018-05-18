@@ -3,15 +3,16 @@
   {{#if title}}
   <div>
     <h3>Active Challenge</h3>
+    <h3>{{usch}}</h3>
     <img src="/img/{{lowercase category}}.svg" alt="icon for {{category}}" height="60px" width="60px">
     <p>{{title}}</p>
-    <form action="/update-challenge/complete/{{id}}" method="POST">
+    <form action="/update-challenge/complete/{{usch}}" method="POST">
       <input type="submit" value="&#10003">
     </form>
-    <form action="/update-challenge/abandon/{{id}}" method="POST">
+    <form action="/update-challenge/abandon/{{usch}}" method="POST">
       <input type="submit" value="&times">
     </form>
-    <a href="/report?challenge={{id}}">Report an issue with this challenge</a>
+    <a href="/report?challenge={{id}}&referrer=home">Report an issue with this challenge</a>
   </div>
   {{else}}
   <p>no active</p>

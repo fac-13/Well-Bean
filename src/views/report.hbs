@@ -1,7 +1,14 @@
 <section>
   <h1>Report an Issue</h1>
   <article>
-    <header>There will be the title and description of the challenge to be reported on here</header>
+    <main>
+      <p>Report an issue with the challenge: {{title}}, added on {{added}} by {{username}}</p>
+      <p>The content of this challenge is:</p>
+      <p>{{description}}</p>
+    </main>
+  </article>
+  <article>
+    <a href="/{{referrer}}/{{id}}">GO BACK</a>
     <form action="/report" method="POST">
       <fieldset>
         <legend>Reporting Form</legend>
