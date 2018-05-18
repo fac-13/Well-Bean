@@ -7,13 +7,13 @@
     <form class="signup__form" action="/signup" method="POST">
       <fieldset>
         <label for="username">Username</label>
-        <input type="text" name="username" id="username" value="{{usernameValue}}" placeholder="choose a username">
+        <input aria-label="username field"  type="text" name="username" id="username" value="{{usernameValue}}" placeholder="choose a username">
         <label for="email">Email</label>
-        <input type="email" name="email" id="email" value="{{emailValue}}" placeholder="add your email">
+        <input aria-label="email field" type="email" name="email" id="email" value="{{emailValue}}" placeholder="add your email">
         <label for="password">Password</label>
-        <input type="password" name="password" id="password" placeholder="enter a password">
+        <input aria-label="password field" type="password" name="password" id="password" placeholder="enter a password">
         <label for="confirm-password">Confirm Password</label>
-        <input type="password" name="confirmPassword" id="confirm-password" placeholder="confirm your password">
+        <input aria-label="confirm your password" type="password" name="confirmPassword" id="confirm-password" placeholder="confirm your password">
 
       </fieldset>
       {{#if error}}

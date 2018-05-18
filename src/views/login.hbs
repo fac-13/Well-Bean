@@ -9,9 +9,9 @@
     <form class="login__form" action="/login" method="POST">
       <fieldset>
         <label for="user">Username/Email</label>
-        <input type="text" name="inputUser" id="user" placeholder="Username or Email">
+        <input aria-label="username or email field" type="text" name="inputUser" id="user" placeholder="Username or Email">
         <label for="password">Password</label>
-        <input type="password" name="inputPassword" id="password" placeholder="Your Password">
+        <input aria-label="password field" type="password" name="inputPassword" id="password" placeholder="Your Password">
       </fieldset>
         {{#if error}}
         <div class="login__error">{{error}}</div>
