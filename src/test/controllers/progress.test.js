@@ -25,7 +25,6 @@ test('Test getUserChallenges function in progress route', (t) => {
       return getUserChallenges(2);
     })
     .then((challenges) => {
-      console.log(challenges);
       t.ok(challenges[1].title.includes('Morning'), 'Morning Hydration', 'getUserChallenges function is valid');
       t.end();
     })
