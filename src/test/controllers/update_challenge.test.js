@@ -43,17 +43,18 @@ test('Test update-challenge POST route with status complete', (t) => {
   runDbBuild()
     .then((dbRes) => {
       t.ok(dbRes, 'database built');
-      createLoginCookie.then((cookie) => {
-        request(router)
-          .post('/update-challenge/complete/1')
-          .set('cookie', cookie)
-          .expect(302)
-          .end((err, res) => {
-            t.error(err);
-            t.ok(res, 'response has something from query');
-            t.end();
-          });
-      });
+      return createLoginCookie;
+    })
+    .then((cookie) => {
+      request(router)
+        .post('/update-challenge/complete/1')
+        .set('cookie', cookie)
+        .expect(302)
+        .end((err, res) => {
+          t.error(err);
+          t.ok(res, 'response has something from query');
+          t.end();
+        });
     })
     .catch((e) => {
       t.error(e);
@@ -65,17 +66,18 @@ test('Test update-challenge POST route with status abandon', (t) => {
   runDbBuild()
     .then((dbRes) => {
       t.ok(dbRes, 'database built');
-      createLoginCookie.then((cookie) => {
-        request(router)
-          .post('/update-challenge/abandon/1')
-          .set('cookie', cookie)
-          .expect(302)
-          .end((err, res) => {
-            t.error(err);
-            t.ok(res, 'response has something from query');
-            t.end();
-          });
-      });
+      return createLoginCookie;
+    })
+    .then((cookie) => {
+      request(router)
+        .post('/update-challenge/abandon/1')
+        .set('cookie', cookie)
+        .expect(302)
+        .end((err, res) => {
+          t.error(err);
+          t.ok(res, 'response has something from query');
+          t.end();
+        });
     })
     .catch((e) => {
       t.error(e);
@@ -87,17 +89,18 @@ test('Test update-challenge POST route with invalid status', (t) => {
   runDbBuild()
     .then((dbRes) => {
       t.ok(dbRes, 'database built');
-      createLoginCookie.then((cookie) => {
-        request(router)
-          .post('/update-challenge/elephant/1')
-          .set('cookie', cookie)
-          .expect(500)
-          .end((err, res) => {
-            t.error(err);
-            t.ok(res.text.includes('500'), 'response contains 500 error message');
-            t.end();
-          });
-      });
+      return createLoginCookie;
+    })
+    .then((cookie) => {
+      request(router)
+        .post('/update-challenge/elephant/1')
+        .set('cookie', cookie)
+        .expect(500)
+        .end((err, res) => {
+          t.error(err);
+          t.ok(res.text.includes('500'), 'response contains 500 error message');
+          t.end();
+        });
     })
     .catch((e) => {
       t.error(e);
@@ -109,17 +112,18 @@ test('Test update-challenge POST route with invalid id', (t) => {
   runDbBuild()
     .then((dbRes) => {
       t.ok(dbRes, 'database built');
-      createLoginCookie.then((cookie) => {
-        request(router)
-          .post('/update-challenge/complete/one')
-          .set('cookie', cookie)
-          .expect(500)
-          .end((err, res) => {
-            t.error(err);
-            t.ok(res.text.includes('500'), 'response contains 500 error message');
-            t.end();
-          });
-      });
+      return createLoginCookie;
+    })
+    .then((cookie) => {
+      request(router)
+        .post('/update-challenge/complete/one')
+        .set('cookie', cookie)
+        .expect(500)
+        .end((err, res) => {
+          t.error(err);
+          t.ok(res.text.includes('500'), 'response contains 500 error message');
+          t.end();
+        });
     })
     .catch((e) => {
       t.error(e);

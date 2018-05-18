@@ -82,20 +82,21 @@ test('Test add-message POST route with empty message body', (t) => {
   runDbBuild()
     .then((dbRes) => {
       t.ok(dbRes, 'database built');
-      createLoginCookie.then((cookie) => {
-        request(router)
-          .post('/add-message')
-          .set('cookie', cookie)
-          .send({
-            message: null,
-          })
-          .expect(200)
-          .end((err, res) => {
-            t.error(err);
-            t.ok(res.text.includes('Please write'), 'response has error message');
-            t.end();
-          });
-      });
+      return createLoginCookie;
+    })
+    .then((cookie) => {
+      request(router)
+        .post('/add-message')
+        .set('cookie', cookie)
+        .send({
+          message: null,
+        })
+        .expect(200)
+        .end((err, res) => {
+          t.error(err);
+          t.ok(res.text.includes('Please write'), 'response has error message');
+          t.end();
+        });
     })
     .catch((e) => {
       t.error(e);
@@ -107,20 +108,21 @@ test('Test add-message POST route with valid message body and cookie session', (
   runDbBuild()
     .then((dbRes) => {
       t.ok(dbRes, 'database built');
-      createLoginCookie.then((cookie) => {
-        request(router)
-          .post('/add-message')
-          .set('cookie', cookie)
-          .send({
-            message: 'test message',
-          })
-          .expect(302)
-          .end((err, res) => {
-            t.error(err);
-            t.ok(res.text.includes('/messages'), 'redirected to messages route');
-            t.end();
-          });
-      });
+      return createLoginCookie;
+    })
+    .then((cookie) => {
+      request(router)
+        .post('/add-message')
+        .set('cookie', cookie)
+        .send({
+          message: 'test message',
+        })
+        .expect(302)
+        .end((err, res) => {
+          t.error(err);
+          t.ok(res.text.includes('/messages'), 'redirected to messages route');
+          t.end();
+        });
     })
     .catch((e) => {
       t.error(e);
