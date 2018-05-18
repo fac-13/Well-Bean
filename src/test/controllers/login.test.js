@@ -16,7 +16,6 @@ test('Test login GET route', (t) => {
     });
 });
 
-// the test below is being skipped at present - resolve when login routes are rebuilt...
 test('Test login POST route - good email', (t) => {
   runDbBuild()
     .then((dbRes) => {

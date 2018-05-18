@@ -39,22 +39,22 @@ test('Test add-message POST route', (t) => {
     });
 });
 
-// Callback function to sign in & grab the cookie session
-function createLoginCookie(server, loginDetails, callback) {
+// Promise to sign in & grab the cookie session
+const createLoginCookie = new Promise((resolve, reject) => {
   request(router)
-    .post(server)
-    .send(loginDetails)
-    .expect(302)
-    .end((error, response) => {
-      if (error) {
-        throw (error);
+    .post('/login')
+    .send({
+      inputUser: 'tinky@winky.com',
+      inputPassword: 'password123',
+    })
+    .end((err, res) => {
+      if (err) {
+        reject(err);
       }
-      const loginCookie = response.headers['set-cookie'];
-      callback(loginCookie);
+      resolve(res.headers['set-cookie'][0]);
     });
-}
+});
 
-// The following two tests are killed due to the issue with cookie-session:
 
 // test('Test add-message POST route with invalid userId', (t) => {
 //   runDbBuild()
@@ -63,7 +63,6 @@ function createLoginCookie(server, loginDetails, callback) {
 //       request(router)
 //         .post('/add-message')
 //         .send({
-//           userId: null,
 //           message: 'test message',
 //         })
 //         .expect(500)
@@ -79,27 +78,26 @@ function createLoginCookie(server, loginDetails, callback) {
 //     });
 // });
 
-test('Test add-message POST route with invalid message body', (t) => {
+test('Test add-message POST route with empty message body', (t) => {
   runDbBuild()
     .then((dbRes) => {
       t.ok(dbRes, 'database built');
-      createLoginCookie('/login', {
-        inputUser: 'tinky@winky.com',
-        inputPassword: 'password123',
-      }, (cookie) => {
-        request(router)
-          .post('/add-message')
-          .set('cookie', cookie)
-          .send({
-            message: '',
-          })
-          .expect(200)
-          .end((err, res) => {
-            t.error(err);
-            t.ok(res.text.includes('Please write'), 'response has error message');
-            t.end();
-          });
-      });
+      return createLoginCookie;
+    })
+    .then((cookie) => {
+      console.log(cookie);
+      request(router)
+        .post('/add-message')
+        .set('cookie', cookie)
+        .send({
+          message: null,
+        })
+        .expect(200)
+        .end((err, res) => {
+          t.error(err);
+          t.ok(res.text.includes('Please write'), 'response has error message');
+          t.end();
+        });
     })
     .catch((e) => {
       t.error(e);
@@ -111,23 +109,21 @@ test('Test add-message POST route with valid message body and cookie session', (
   runDbBuild()
     .then((dbRes) => {
       t.ok(dbRes, 'database built');
-      createLoginCookie('/login', {
-        inputUser: 'tinky@winky.com',
-        inputPassword: 'password123',
-      }, (cookie) => {
-        request(router)
-          .post('/add-message')
-          .set('cookie', cookie)
-          .send({
-            message: 'test message',
-          })
-          .expect(302)
-          .end((err, res) => {
-            t.error(err);
-            t.ok(res.text.includes('/messages'), 'redirected to messages route');
-            t.end();
-          });
-      });
+      return createLoginCookie;
+    })
+    .then((cookie) => {
+      request(router)
+        .post('/add-message')
+        .set('cookie', cookie)
+        .send({
+          message: 'test message',
+        })
+        .expect(302)
+        .end((err, res) => {
+          t.error(err);
+          t.ok(res.text.includes('/messages'), 'redirected to messages route');
+          t.end();
+        });
     })
     .catch((e) => {
       t.error(e);
