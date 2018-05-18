@@ -23,6 +23,8 @@ General user needs to complete daily challenges so that they can improve their r
 
 ### User Journeys
 
+![](https://i.imgur.com/dI7pDWS.png)
+
 #### The user can view a list of challenges, see more details, opt-in then complete or opt-out a challenge.
 User Stories:
 * [x] User can view challenges.
