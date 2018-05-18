@@ -4,14 +4,14 @@ const router = require('../../app.js');
 // require test database build script
 const runDbBuild = require('../../model/database/db_build');
 
-test('Test signup GET route', (t) => {
+test.only('Test signup GET route', (t) => {
   request(router)
     .get('/signup')
     .expect(200)
     .expect('Content-Type', /html/)
     .end((err, res) => {
       t.error(err);
-      t.ok(res.text.includes('Signup'), 'response contains signup message');
+      t.ok(res.text.includes('ignup'), 'response contains signup message');
       t.end();
     });
 });
