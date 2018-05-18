@@ -47,11 +47,12 @@ const createLoginCookie = new Promise((resolve, reject) => {
       inputUser: 'tinky@winky.com',
       inputPassword: 'password123',
     })
-    .end((error, response) => {
-      if (error) {
-        reject(error);
+    .end((err, res) => {
+      if (err) {
+        reject(err);
       }
-      resolve(response.headers['set-cookie']);
+      console.log(res.headers);
+      resolve(res.headers['set-cookie']);
     });
 });
 
