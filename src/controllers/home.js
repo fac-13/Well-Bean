@@ -1,6 +1,5 @@
 const { getActiveChallenge } = require('../model/queries/');
 
-
 exports.get = (req, res, next) => {
   if (req.session.loggedIn) {
     const { userId } = req.session;
@@ -11,5 +10,7 @@ exports.get = (req, res, next) => {
         res.render('home', activeChallenge);
       })
       .catch(e => next(e));
-  } else { res.redirect('/login'); }
+  } else {
+    res.redirect('/login');
+  }
 };
