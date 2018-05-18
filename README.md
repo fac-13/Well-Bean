@@ -25,43 +25,43 @@ General user needs to complete daily challenges so that they can improve their r
 
 #### The user can view a list of challenges, see more details, opt-in then complete or opt-out a challenge.
 User Stories:
-* [ ] User can view challenges.
-* [ ] User can select a challenge and see more details.
-* [ ] User can opt-in to a challenge.
-* [ ] User can mark a challenge as complete
-* [ ] User can opt-out of a challenge if they want.
+* [x] User can view challenges.
+* [x] User can select a challenge and see more details.
+* [x] User can opt-in to a challenge.
+* [x] User can mark a challenge as complete
+* [x] User can opt-out of a challenge if they want.
 
 #### User can create an account or login to the app.
 User Stories:
-* [ ] User can login to the app.
-* [ ] A new user can sign-up to the app.
+* [x] User can login to the app.
+* [x] A new user can sign-up to the app.
 
 #### User can easily navigate to other pages in the app.
 User Stories:
-* [ ] User can get to Inspire page from all other pages.
-* [ ] User can get to Challenges page from all other pages.
-* [ ] User can get to Home page from all other pages.
-* [ ] User can get to Stats page from all other pages.
+* [x] User can get to Inspire page from all other pages.
+* [x] User can get to Challenges page from all other pages.
+* [x] User can get to Home page from all other pages.
+* [x] User can get to Stats page from all other pages.
 
 #### User can see a feed of positive messages.
 User Stories:
-* [ ] Each user can read other users' messages.
-* [ ] User can see who is the author of each message
+* [x] Each user can read other users' messages.
+* [x] User can see who is the author of each message
 
 #### User can submit new messages or challenges.
 User Stories:
-* [ ] User can write a message if desired.
-* [ ] Users can create challenges that follow the S.M.A.R.T pattern. (Specific, Measurable, Attainable, Relevant and Timely).
+* [x] User can write a message if desired.
+* [x] Users can create challenges that follow the S.M.A.R.T pattern. (Specific, Measurable, Attainable, Relevant and Timely).
 
 #### User can see latest message, 10 latest challenges or current challenge all in one home page.
 User stories:
 * [ ] User can see latest inspirational message on home page.
 * [ ] User can see 10 latest challenges in a carousel on home page.
-* [ ] User can see their current challenge on the home page.
+* [x] User can see their current challenge on the home page.
 
 #### User can view their progress.
 User Stories:
-* [ ] User can track their progress in one place.
+* [x] User can track their progress in one place.
 
 #### User can report messages or challenges.
 User Stories:
@@ -88,9 +88,14 @@ User Stories:
 
 ### scripts
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
-    "test": "NODE_ENV=test nyc nodemon src/tests/*.test.js | tap-spec",
-    "build": "node src/model/database/db_build.js"
+    "dev": "nodemon src/index.js",
+    "test": "NODE_ENV=test nyc tape src/test/**/*.test.js | tap-spec",
+    "test:routes": "NODE_ENV=test nyc tape src/test/controllers/*.test.js | tap-spec",
+    "test:queries": "NODE_ENV=test nyc tape src/test/model/*.test.js | tap-spec",
+    "test:helpers": "NODE_ENV=test nyc tape src/test/views/*.test.js | tap-spec",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "build:db": "node src/model/database/db_build.js" //will only run if dbBuild() is uncommented in db_build.js,
+    "sass": "node-sass --watch sass -o public/css"
 
 ### Dependencies
 - express
@@ -122,6 +127,13 @@ User Stories:
 - Development: Local
 
 ## How to run/set up local environment
+
+    git clone [Well-Bean github repo]
+    cd Well-Bean
+    npm i
+    
+Create DATABASE_URL and TES_DB_URL in a .env file
+
 
 ## Prototype Flow
 [Figma prototype](https://www.figma.com/file/JqtTX7hSQDNm6bezlf6w9SnE/Be-Well?node-id=80%3A169)
