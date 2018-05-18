@@ -42,7 +42,7 @@ test('Test update-challenge POST route with status abandon', (t) => {
     });
 });
 
-test('Test update-challenge POST route with invalid status', (t) => {
+test.skip('Test update-challenge POST route with invalid status', (t) => {
   runDbBuild()
     .then((dbRes) => {
       t.ok(dbRes, 'database built');
@@ -61,7 +61,7 @@ test('Test update-challenge POST route with invalid status', (t) => {
     });
 });
 
-test('Test update-challenge POST route with invalid id', (t) => {
+test.skip('Test update-challenge POST route with invalid id', (t) => {
   runDbBuild()
     .then((dbRes) => {
       t.ok(dbRes, 'database built');
