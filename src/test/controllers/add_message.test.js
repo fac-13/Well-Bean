@@ -51,8 +51,7 @@ const createLoginCookie = new Promise((resolve, reject) => {
       if (err) {
         reject(err);
       }
-      console.log(res.headers);
-      resolve(res.headers['set-cookie']);
+      resolve(res.headers['set-cookie'][0]);
     });
 });
 
@@ -86,6 +85,7 @@ test('Test add-message POST route with empty message body', (t) => {
       return createLoginCookie;
     })
     .then((cookie) => {
+      console.log(cookie);
       request(router)
         .post('/add-message')
         .set('cookie', cookie)
