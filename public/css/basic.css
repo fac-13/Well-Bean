@@ -136,6 +136,7 @@ main {
   height: 100vh;
 }
 
+.section__signup,
 .section__login {
   max-width: 600px;
   margin: auto;
@@ -143,12 +144,14 @@ main {
   text-align: center;
 }
 
+.signup__title,
 .login__title {
   font-family: "Londrina Solid";
   color:#F5F6FA;
   font-size: 5em;
 }
 
+.signup__title--desc,
 .login__title--desc {
   font-size: 1.5em;
   color: #2D3039;
@@ -157,6 +160,7 @@ main {
   letter-spacing: 2px;
 }
 
+.signup__desc,
 .login__desc {
   font-size: 1.2em;
   color: #2D3039;
@@ -167,24 +171,18 @@ main {
   line-height: 1.5em;
 }
 
+.signup__desc p,
 .login__desc p {
   margin: .5em;
 }
 
-.login__form--container {
-
-}
-
-.login__form {
-
-}
-
+.signup__form label,
 .login__form label {
   display: none;
 }
 
 
-
+.signup__form input,
 .login__form input {
   background: #F5F6FA;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -194,6 +192,7 @@ main {
   margin: 1%;
 }
 
+.signup__form--button,
 .login__form--button {
   width: 65%;
   background: #7BE6BB;
@@ -207,6 +206,7 @@ main {
   bottom: 4%;
 }
 
+.signup__error,
 .login__error {
   color: #D8000C;
   background-color: #FFBABA;

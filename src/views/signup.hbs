@@ -1,10 +1,11 @@
-<section>
-  <h1>Welcome to Well-Bean</h1>
-  <article>
-    <h3>Signup Here</h3>
-    <form action="/signup" method="POST">
+<section class="section__signup">
+  <h1 class="signup__title">Sign Up</h1>
+  <div class="signup__desc">
+  <p>We take our promise of anonymity seriously. We will never share your information with others. </p>
+  </div>
+  <article class="signup__form--container">
+    <form class="signup__form" action="/signup" method="POST">
       <fieldset>
-        <legend>Well-Bean!</legend>
         <label for="username">Username</label>
         <input type="text" name="username" id="username" value="{{usernameValue}}" placeholder="choose a username">
         <label for="email">Email</label>
@@ -13,11 +14,12 @@
         <input type="password" name="password" id="password" placeholder="enter a password">
         <label for="confirm-password">Confirm Password</label>
         <input type="password" name="confirmPassword" id="confirm-password" placeholder="confirm your password">
-        <input type="submit" value="SIGNUP!">
+
       </fieldset>
       {{#if error}}
-      <span>{{error}}</span>
+        <div class="signup__error">{{error}}</div>
       {{/if}}
+        <button class="signup__form--button">Sign Up</button>
     </form>
   </article>
 </section>
