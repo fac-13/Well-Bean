@@ -9,9 +9,10 @@ test('Test postChallenge query', (t) => {
   runDbBuild()
     .then((res) => {
       t.ok(res);
-      return postReport(3, 3, 'This is a new test report');
+      return postReport(2, 3, 'This is a test report');
     })
     .then((id) => {
+      console.log(id);
       t.ok(id, 'postReport returns new report id');
       t.end();
     })
