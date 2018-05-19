@@ -2,7 +2,7 @@
   <ul>
     {{#each challenges}}
     <li>
-      <a href="/challenge/{{this.id}}">
+      <a href="/challenge/{{this.id}}?referrer=/challenges">
         <div>
           <h1>{{this.title}}</h1>
           <img src="/img/{{lowercase this.category}}.svg" alt="icon for {{this.category}}" height="60px" width="60px">
