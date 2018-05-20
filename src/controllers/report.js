@@ -1,8 +1,7 @@
-const { getChallenge } = require('../model/queries/');
+const { getChallenge, postReport } = require('../model/queries/');
 
 exports.get = (req, res, next) => {
   const { challenge: challengeId, referrer } = req.query;
-  // const { userId } = req.session;
   getChallenge(challengeId)
     .then((result) => {
       const challenge = result[0];
@@ -12,4 +11,10 @@ exports.get = (req, res, next) => {
     .catch(e => next(e));
 };
 
-// exports.post = (req, res) => res.send('Hello Report');
+exports.post = (req, res, next) => {
+  const { challenge: challengeId, report } = req.body;
+  const { userId } = req.session;
+  postReport(userId, challengeId, report)
+    .then(() => res.redirect('/'))
+    .catch(e => next(e));
+};
