@@ -12,7 +12,6 @@ test('Test postChallenge query', (t) => {
       return postReport(2, 3, 'This is a test report');
     })
     .then((id) => {
-      console.log(id);
       t.ok(id, 'postReport returns new report id');
       t.end();
     })

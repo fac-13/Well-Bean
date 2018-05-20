@@ -38,7 +38,7 @@ router.post('/user-challenge/:id', userChallenge.post); // select a challenge
 router.post('/update-challenge/:status/:usch', updateChallenge.post); // update user-challenge
 router.post('/add-challenge', addChallenge.post);
 router.post('/add-message', addMessage.post);
-// router.post('/report', report.post);
+router.post('/report', report.post);
 
 router.use(error.client);
 router.use(error.server);
